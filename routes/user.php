@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\User\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::group(['controller' => AuthController::class], function ()
+{
+    Route::post('login', 'login');
+    Route::post('register', 'register');
+});
 
 
