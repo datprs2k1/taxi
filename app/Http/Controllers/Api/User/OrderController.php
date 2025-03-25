@@ -39,8 +39,8 @@ class OrderController extends Controller
         try {
             $distance = google_distance($request->start_place, $request->end_place);
             $distance = $distance / 1000;
-            $seats = $request->seats ?? 4;
-            $round_trip = $request->round_trip == 'true' ? true : false;
+            $seats = $request->num_seats ?? 4;
+            $round_trip = $request->roundtrip == 'true' ? true : false;
 
             $quoted_price = $this->calculate_price($distance, $seats, $round_trip);
 
