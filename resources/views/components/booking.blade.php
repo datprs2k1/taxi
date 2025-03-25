@@ -43,7 +43,6 @@
                                     <option value="4" selected>Xe 4 chỗ</option>
                                     <option value="5">Xe 5 chỗ</option>
                                     <option value="7">Xe 7 chỗ</option>
-                                    <option value="9">Xe 9 chỗ</option>
                                 </select></div>
                             <div class="form-group flex bg2 dc_col2 right"> <label for="stopPointsCounter">Điểm
                                     dừng</label> <button type="button" class="btn diem_dung" rel="tooltip"
