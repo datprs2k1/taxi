@@ -42,7 +42,7 @@ class OrderService extends BaseService
                 $orders->whereDate('created_at', '<=', $value);
             });
 
-            $orders = $orders->paginate(10);
+            $orders = $orders->orderBy('status', 'asc')->paginate(10);
 
             return $orders;
         });
