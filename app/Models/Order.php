@@ -19,7 +19,8 @@ class Order extends Model
         'vat',
         'waittime',
         'status',
-        'price'
+        'price',
+        'distance'
     ];
 
     public $casts = [
