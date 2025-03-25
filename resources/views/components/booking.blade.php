@@ -43,11 +43,7 @@
                                     <option value="4" selected>Xe 4 chỗ</option>
                                     <option value="5">Xe 5 chỗ</option>
                                     <option value="7">Xe 7 chỗ</option>
-                                    <option value="16">Xe 16 chỗ</option>
-                                    <option value="29">Xe 29 chỗ</option>
-                                    <option value="45">Xe 45 chỗ</option>
-                                    <option value="54">Xe 54 chỗ</option>
-                                    <option value="99">Xe loại khác</option>
+                                    <option value="9">Xe 9 chỗ</option>
                                 </select></div>
                             <div class="form-group flex bg2 dc_col2 right"> <label for="stopPointsCounter">Điểm
                                     dừng</label> <button type="button" class="btn diem_dung" rel="tooltip"
@@ -56,8 +52,8 @@
                                         id="stopPointsCounter">0</span></button></div>
                             <div class="form-group flex bg2 dc_col2 left tgian_don"> <input type="text"
                                     class="form-control tgian_don" id="pickuptime_tif" placeholder="Thời gian đón"
-                                    data-toggle="tooltip" data-placement="top"
-                                    title="Xin vui lòng nhập Thời Gian Đón"></div>
+                                    data-toggle="tooltip" data-placement="top" title="Xin vui lòng nhập Thời Gian Đón">
+                            </div>
                             <div class="form-group flex bg2 dc_col2 right tgian_cho"> <input type="number"
                                     class="form-control tgian_cho" id="waittime_nf" placeholder="Thời gian chờ"
                                     aria-describedby="waittime_help" rel="tooltip" data-placement="top"
