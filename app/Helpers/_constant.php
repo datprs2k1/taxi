@@ -1,22 +1,12 @@
 <?php
-const SERVER_ERROR = 500;
-const HTTP_VALIDATE_FAIL = 422;
-const HTTP_FORBIDDEN_CODE = 403;
-const HTTP_UNAUTHORIZED = 401;
-const HTTP_SUCCESS_CODE = 200;
-const HTTP_BAD_REQUEST = 400;
-const HTTP_NOT_FOUND = 404;
-const HTTP_FORBIDDEN = 403;
-const HTTP_UNAUTHORIZED_CODE = 401;
-const GUARD_ADMIN_API = "admin";
-const ROLE_ADMIN = "admin";
-const ROLE_CUSTOMER = "customer";
-const MIN_WITHDRAW_VND = 300000;
-const MIN_WITHDRAW_KTV = 300;
-const MIN_RECHARGE = 100000;
-const MIN_TRANSFER_VND = 100000;
-const MIN_TRANSFER_KTV = 100;
-const TRANSFER_FEE = 0.5;
-const WITHDRAW_FEE = 1;
+const ADMIN_SIDEBAR = [
+    'home' => 'Trang chủ',
+    'config' => 'Cấu hình',
+    'order' => 'Đơn hàng',
+];
 
-const DEFAULT_PAGINATE = 10;
+const ADMIN_SIDEBAR_ICON = [
+    'home' => 'bi bi-speedometer',
+    'config' => 'bi bi-gear',
+    'order' => 'bi bi-cart',
+];

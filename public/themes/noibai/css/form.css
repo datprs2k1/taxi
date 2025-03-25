@@ -1,0 +1,583 @@
+.home_datxe {
+  float: left;
+  padding: 20px 30px;
+  background: linear-gradient(#0e70bb, #104282);
+}
+
+.pac-container {
+  background-color: #fff;
+  z-index: 99999;
+  position: fixed;
+  display: inline-block;
+  float: left;
+}
+
+.form_main ul.nav {
+  line-height: 40px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #1a84d5;
+}
+.form_main ul.nav li:first-child {
+  border-right: 1px solid #1a84d5;
+}
+.form_main ul.nav li a {
+  line-height: 40px;
+  color: #ffffff;
+}
+.form_main ul.nav li a:hover,
+.form_main ul.nav li a.active {
+  background: no-repeat;
+  border-radius: 0;
+  color: #cfe225;
+}
+.form_main form.info_form {
+  float: left;
+  width: 100%;
+}
+.form_main form.info_form .form-control,
+.form_main form.info_form .btn {
+  border: 0;
+  border-radius: 0;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 15px;
+  font-family: "Bebeboo", sans-serif !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form_main form.info_form .form-control span,
+.form_main form.info_form .btn span {
+  width: 100%;
+}
+.form_main form.info_form .form-control:hover,
+.form_main form.info_form .form-control:active,
+.form_main form.info_form .form-control:focus,
+.form_main form.info_form .btn:hover,
+.form_main form.info_form .btn:active,
+.form_main form.info_form .btn:focus {
+  box-shadow: none !important;
+}
+.form_main form.info_form .flex {
+  display: flex;
+  align-items: center;
+  float: left;
+  width: 100%;
+  position: relative;
+}
+.form_main form.info_form .flex label {
+  display: block;
+  width: 120px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+}
+.form_main form.info_form .flex input,
+.form_main form.info_form .flex select {
+  flex: 1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.form_main form.info_form .flex.bg1 {
+  background: #003170;
+  border-radius: 5px;
+}
+.form_main form.info_form .flex.bg2 {
+  background: #0060bb;
+  border-radius: 5px;
+}
+.form_main form.info_form .flex .invalid-feedback {
+  position: absolute;
+  text-align: right;
+  margin: 0;
+  padding-right: 30px;
+}
+.form_main form.info_form .form_dcdd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #1a84d5;
+}
+.form_main form.info_form .form_dcdd .form-group {
+  flex-grow: 1;
+  flex: 1 1 30%;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  color: #ffffff;
+}
+.form_main form.info_form .form_dcdd .form-group .form-check-input {
+  position: inherit;
+  margin: 0;
+}
+.form_main form.info_form .form_dcdd .form-group input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  height: 24px;
+  width: 24px;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  -o-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  background: #003170;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  vertical-align: middle;
+  border-radius: 5px;
+  margin: 0 15px 0 0;
+  vertical-align: sub;
+  position: relative;
+}
+.form_main
+  form.info_form
+  .form_dcdd
+  .form-group
+  input[type="checkbox"]:checked::before {
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  content: "";
+  display: block;
+  background: url("check.png") center center no-repeat;
+}
+.form_main
+  form.info_form
+  .form_dcdd
+  .form-group
+  input[type="checkbox"]:checked
+  + label {
+  color: #ffff00;
+}
+.form_main form.info_form .form_dcdd .form-group .form-check-label {
+  text-align: center;
+  cursor: pointer;
+}
+.form_main form.info_form .form_dcdd .dao_chieu i {
+  margin-right: 5px;
+}
+.form_main form.info_form .form_dcdd .btn {
+  height: 35px;
+  line-height: 35px;
+  border-radius: 5px;
+  width: 100%;
+  background: #0077d3;
+}
+.form_main form.info_form .dc_col2 {
+  width: calc(50% - 5px);
+}
+.form_main form.info_form .dc_col2.left {
+  float: left;
+}
+.form_main form.info_form .dc_col2.right {
+  float: right;
+}
+.form_main form.info_form .dc_col2 .form-control,
+.form_main form.info_form .dc_col2 .btn {
+  height: 36px;
+  line-height: 36px;
+  font-family: "Bebeboo", sans-serif !important;
+}
+.form_main form.info_form .dc_col2 span {
+  display: block;
+  width: 110px;
+  padding-left: 10px;
+  color: #ffffff;
+}
+.form_main form.info_form .dc_col2 input.tgian_don,
+.form_main form.info_form .dc_col2 input.tgian_cho {
+  border-radius: 5px;
+}
+.form_main form.info_form .dc_col2 input.tgian_don {
+  background: #ffffff url("tgian_don.png") center right 15px no-repeat;
+}
+.form_main form.info_form .dc_col2 input.tgian_cho {
+  background: #ffffff url("tgian_cho.png") center right 15px no-repeat;
+  border-radius: 5px;
+}
+.form_main form.info_form .dc_diemdi label {
+  background: url("diem_di.png") left 10px center no-repeat;
+}
+.form_main form.info_form .dc_diemden label {
+  background: url("diem_den.png") left 10px center no-repeat;
+}
+.form_main form.info_form .dao_chieu .btn span {
+  display: block;
+  width: auto;
+  padding-left: 21px;
+  background: url("doi_chieu.png") left center no-repeat;
+}
+.form_main form.info_form .loai_xe,
+.form_main form.info_form .diem_dung {
+  background: #0077d3;
+  color: #ffffff;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: left;
+}
+.form_main form.info_form select.loai_xe {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #0077d3
+    url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiICAgaWQ9IkxheWVyXzEiICAgZGF0YS1uYW1lPSJMYXllciAxIiAgIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIiAgIHZlcnNpb249IjEuMSIgICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkxIHIxMzcyNSIgICBzb2RpcG9kaTpkb2NuYW1lPSJkb3dubG9hZC5zdmciPiAgPG1ldGFkYXRhICAgICBpZD0ibWV0YWRhdGE0MjAyIj4gICAgPHJkZjpSREY+ICAgICAgPGNjOldvcmsgICAgICAgICByZGY6YWJvdXQ9IiI+ICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4gICAgICAgIDxkYzp0eXBlICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPiAgICAgIDwvY2M6V29yaz4gICAgPC9yZGY6UkRGPiAgPC9tZXRhZGF0YT4gIDxzb2RpcG9kaTpuYW1lZHZpZXcgICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIgICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IiAgICAgYm9yZGVyb3BhY2l0eT0iMSIgICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiICAgICBncmlkdG9sZXJhbmNlPSIxMCIgICAgIGd1aWRldG9sZXJhbmNlPSIxMCIgICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIgICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIgICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMjciICAgICBpZD0ibmFtZWR2aWV3NDIwMCIgICAgIHNob3dncmlkPSJmYWxzZSIgICAgIGlua3NjYXBlOnpvb209Ijg0LjMiICAgICBpbmtzY2FwZTpjeD0iMi40NzQ5OTk5IiAgICAgaW5rc2NhcGU6Y3k9IjUiICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMTkyMCIgICAgIGlua3NjYXBlOndpbmRvdy15PSIyNyIgICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJMYXllcl8xIiAvPiAgPGRlZnMgICAgIGlkPSJkZWZzNDE5MCI+ICAgIDxzdHlsZSAgICAgICBpZD0ic3R5bGU0MTkyIj4uY2xzLTJ7ZmlsbDojNDQ0O308L3N0eWxlPiAgPC9kZWZzPiAgPHRpdGxlICAgICBpZD0idGl0bGU0MTk0Ij5hcnJvd3M8L3RpdGxlPiAgPHBvbHlnb24gICAgIGNsYXNzPSJjbHMtMiIgICAgIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIiAgICAgaWQ9InBvbHlnb240MTk4IiAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MSIgLz48L3N2Zz4=)
+    no-repeat 100% 50%;
+  padding-right: 20px;
+  background-position: top -4px right;
+}
+.form_main form.info_form .btn_datxe {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 50px;
+  color: #ffffff;
+  background: #ff9000;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.form_main form.info_form .btn_datxe i {
+  margin-left: 15px;
+}
+
+.form_main form.info_form .btn_quickbook {
+  display: flex;
+  align-items: center;
+  margin: auto auto auto 5px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 50px;
+  color: #ffffff;
+  background: #0077d3;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.form_main form.info_form .btn_quickbook i {
+  margin-right: 15px;
+}
+
+.modal.modal_xacnhan .modal-content {
+  border: none;
+}
+.modal.modal_xacnhan .modal-dialog {
+  max-width: 600px;
+  width: 100%;
+}
+.modal.modal_xacnhan .modal-header {
+  padding: 9px 15px;
+  background: #104282;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.modal.modal_xacnhan .modal-header .modal-title {
+  width: 100%;
+  font-weight: 400;
+  font-size: 18px;
+}
+.modal.modal_xacnhan .modal-header .close {
+  position: absolute;
+  right: 15px;
+  color: #ff0004;
+}
+.modal.modal_xacnhan .modal-body {
+  text-align: center;
+}
+.modal.modal_xacnhan .modal-body h4 {
+  font-size: 18px;
+  font-weight: 400;
+}
+.modal.modal_xacnhan .modal-body h3.price {
+  color: #ff9000;
+}
+.modal.modal_xacnhan #bookingForm input[type="text"] {
+  max-width: 360px;
+  margin: auto;
+  background: #eeeeee;
+  color: #000000;
+  font-weight: 500;
+  border: none;
+}
+.modal.modal_xacnhan #bookingForm input[type="text"]:hover,
+.modal.modal_xacnhan #bookingForm input[type="text"]:active,
+.modal.modal_xacnhan #bookingForm input[type="text"]:focus {
+  box-shadow: none !important;
+}
+.modal.modal_xacnhan #stopPointForm input[type="text"] {
+  margin: auto;
+  background: #eeeeee;
+  color: #000000;
+  font-weight: 500;
+}
+.modal.modal_xacnhan #stopPointForm input[type="text"]:hover,
+.modal.modal_xacnhan #stopPointForm input[type="text"]:active,
+.modal.modal_xacnhan #stopPointForm input[type="text"]:focus {
+  box-shadow: none !important;
+}
+.modal.modal_xacnhan #stopPointForm button {
+  background: #eeeeee;
+  color: #032d63;
+}
+.modal.modal_xacnhan #stopPointForm button:hover,
+.modal.modal_xacnhan #stopPointForm button:active,
+.modal.modal_xacnhan #stopPointForm button:focus {
+  box-shadow: none !important;
+}
+.modal.modal_xacnhan .form-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 2px;
+  padding: 0 15px;
+  position: relative;
+}
+.modal.modal_xacnhan .form-check input[type="checkbox"] {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  -webkit-transition: all 0.15s ease-out 0s;
+  -moz-transition: all 0.15s ease-out 0s;
+  -o-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+  background: #ffffff;
+  border: 1px solid #ff9000;
+  cursor: pointer;
+  outline: none;
+  left: 15px;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin: 0 25px 0 0;
+  vertical-align: sub;
+}
+.modal.modal_xacnhan .form-check input[type="checkbox"]:checked::before {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  content: "";
+  display: block;
+  background: #ff9000;
+  border-radius: 50%;
+}
+.modal.modal_xacnhan .form-check input[type="checkbox"]:checked + span {
+  color: #ff9000;
+}
+.modal.modal_xacnhan .form-check .form-check-label {
+  cursor: pointer;
+}
+.modal.modal_xacnhan #stopPointForm input,
+.modal.modal_xacnhan #stopPointForm button {
+  height: 40px;
+  border: 1px solid #eeeeee;
+}
+.modal.modal_xacnhan .modal-footer {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+}
+.modal.modal_xacnhan .modal-footer .btn {
+  border: none;
+  /*min-width: 230px;*/
+}
+.modal.modal_xacnhan .modal-footer.diemdung_footer .btn {
+  border: none;
+  min-width: auto;
+  text-transform: uppercase;
+}
+.modal.modal_xacnhan .modal-footer #confirm_btn,
+.modal.modal_xacnhan .modal-footer #stopPoint_submit {
+  background: #ff9000;
+  text-transform: uppercase;
+}
+
+.widget_form {
+  float: left;
+  padding: 10px;
+  background: linear-gradient(#0e70bb, #104282);
+  border-radius: 5px;
+}
+.widget_form .form_main ul.nav {
+  padding: 0;
+  border: 0;
+}
+.widget_form .form_main ul.nav li {
+  width: 50%;
+  text-align: center;
+}
+.widget_form .form_main ul.nav li a {
+  padding: 0;
+}
+.widget_form .form_main form.info_form .flex span {
+  width: 85px;
+  font-size: 14px;
+}
+.widget_form .form_main form.info_form .form_dcdd .form-group {
+  flex: 1 1 50%;
+}
+.widget_form .form_main form.info_form .dc_col2 {
+  width: 100%;
+}
+.widget_form .form_main form.info_form .dc_col2 .btn {
+  flex: 1;
+}
+@media only screen and (min-width: 768px) {
+  #rotate_btn {
+    top: 125px;
+    right: 45px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #bookNow_btn{
+    margin: auto;
+  }
+  #quickBook_btn{
+    display: none;
+  }
+  #rotate_btn {
+    top: 100px;
+    right: 10px;
+  }
+  .home_datxe {
+    padding: 15px 10px;
+  }
+
+  .form_main ul.nav {
+    padding: 0;
+    border: 0;
+  }
+  .form_main ul.nav::before,
+  .form_main ul.nav::after {
+    display: none;
+  }
+  .form_main ul.nav li {
+    width: 50%;
+    text-align: center;
+  }
+  .form_main ul.nav li a {
+    padding: 0;
+  }
+  .form_main form.info_form .flex span {
+    width: 85px;
+    font-size: 14px;
+  }
+  .form_main form.info_form .form_dcdd .form-group {
+    flex: 1 1 32%;
+  }
+  .form_main form.info_form .form_dcdd .dao_chieu i {
+    display: none;
+  }
+  .form_main form.info_form .dc_col2 {
+    width: 100%;
+  }
+  .form_main form.info_form .dc_col2 .btn {
+    flex: 1;
+  }
+
+  .modal.modal_xacnhan .modal-dialog {
+    width: auto;
+  }
+  .modal.modal_xacnhan .modal-footer .btn {
+    min-width: auto;
+  }
+  .modal.modal_xacnhan .modal-footer.diemdung_footer {
+    display: block;
+    text-align: center;
+  }
+  .modal.modal_xacnhan .modal-footer.diemdung_footer #stopPoint_reset {
+    clear: both;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+}
+
+#bookingModal .price {
+  color: #ff9000;
+}
+
+#bookingModal .old-price {
+  color: #a1a1a1;
+  padding-left: 10px;
+  display: none;
+  text-decoration: line-through;
+}
+
+.vat-info {
+  font-size: 20px;
+  color: #bfbfbf;
+  display: none;
+}
+.check-promo-btn {
+  border-color: #e3e3e3;
+  color: #545454;
+}
+
+.check-promo-btn :hover {
+  color: #fff;
+}
+
+#promocode_tf {
+  text-transform: uppercase;
+}
+
+::-webkit-input-placeholder {
+  text-transform: initial;
+}
+
+:-moz-placeholder {
+  text-transform: initial;
+}
+
+::-moz-placeholder {
+  text-transform: initial;
+}
+
+:-ms-input-placeholder {
+  text-transform: initial;
+}
+
+#rotate_btn {
+  border-radius: 50px;
+  position: absolute;
+  font-size: 13px;
+  height: 42px;
+  /* top: 125px; */
+  /* right: 45px; */
+  box-shadow: 0px 0px 18px 6px rgb(0 0 0 / 39%) inset;
+  -webkit-box-shadow: 0px 0px 18px 6px rgb(0 0 0 / 39%) inset;
+  -moz-box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.39) inset;
+}
+
+#promocode_tf {
+  height: 36px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+#quickBookModal .modal-body ul div{
+  display: flex;
+  text-align: left;
+}
