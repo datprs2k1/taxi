@@ -23831,13 +23831,13 @@ $(document).ready(function () {
                         '<div class="input-group mb-3">' +
                         '<input type="text" class="form-control" id="' +
                         name +
-                        '" placeholder="Äiá»ƒm dá»«ng ' +
+                        '" placeholder="Điểm dừng ' +
                         count +
                         '"' +
-                        'aria-label="Äiá»ƒm dá»«ng" aria-describedby="addStopPoint_btn">' +
+                        'aria-label="Điểm dừng" aria-describedby="addStopPoint_btn">' +
                         '<div class="input-group-append">' +
                         '<button class="btn btn-outline-secondary" rel="tooltip" data-placement="right"' +
-                        'title="ThÃªm Ä‘iá»ƒm dá»«ng" type="button" id="addStopPoint_btn"><i class="fas fa-plus"></i></button>' +
+                        'title="Thêm điểm dừng" type="button" id="addStopPoint_btn"><i class="fas fa-plus"></i></button>' +
                         "</div>" +
                         "</div>"
                 );
@@ -23875,12 +23875,12 @@ $(document).ready(function () {
                         '">' +
                         '<input type="text" class="form-control" id="stopPoint' +
                         count +
-                        '_tf" placeholder="Äiá»ƒm dá»«ng ' +
+                        '_tf" placeholder="Điểm dừng ' +
                         count +
-                        '" aria-label="Äiá»ƒm dá»«ng" aria-describedby="removePoint_btn">' +
+                        '" aria-label="Điểm dừng" aria-describedby="removePoint_btn">' +
                         '<div class="input-group-append">' +
                         '<button class="btn btn-outline-secondary" data-placement="right"  rel="tooltip"' +
-                        'title="XÃ³a Ä‘iá»ƒm dá»«ng nÃ y" type="button" id="removePoint' +
+                        'title="Xóa điểm dừng này" type="button" id="removePoint' +
                         count +
                         '_btn"><i class="fas fa-minus"></i></button>' +
                         "</div>" +
@@ -24442,18 +24442,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         ],
         daysMin: ["CN", "T2", "T3", "T4", "T5", "T6", "T7", "CN"],
         months: [
-            "ThÃ¡ng 1",
-            "ThÃ¡ng 2",
-            "ThÃ¡ng 3",
-            "ThÃ¡ng 4",
-            "ThÃ¡ng 5",
-            "ThÃ¡ng 6",
-            "ThÃ¡ng 7",
-            "ThÃ¡ng 8",
-            "ThÃ¡ng 9",
-            "ThÃ¡ng 10",
-            "ThÃ¡ng 11",
-            "ThÃ¡ng 12",
+            "Tháng 1",
+            "Tháng 2",
+            "Tháng 3",
+            "Tháng 4",
+            "Tháng 5",
+            "Tháng 6",
+            "Tháng 7",
+            "Tháng 8",
+            "Tháng 9",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12",
         ],
         monthsShort: [
             "T-1",
