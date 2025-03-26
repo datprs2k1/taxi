@@ -186,7 +186,7 @@
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-signpost-split me-2 text-primary"></i>
                                         <span class="fw-medium">{{ $order->distance ?? 0 }} km
-                                            {{ $order->round_trip ? 'x 2' : '' }}</span>
+                                            {{ $order->round_trip ?: '' }}</span>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         @if ($order->round_trip)
