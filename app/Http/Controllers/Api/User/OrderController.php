@@ -30,7 +30,10 @@ class OrderController extends Controller
             }
         }
 
-        return $distance * $price_per_km;
+        $price = $distance * $price_per_km;
+
+        // Round the price to the nearest thousand
+        return round($price / 1000) * 1000;
     }
 
     public function price(Request $request)
@@ -62,11 +65,15 @@ class OrderController extends Controller
         return DbTransactions()->addCallbackJson(function () use ($request) {
             $data = $request->all();
             $distance = google_distance($data['start_place'], $data['end_place']);
-            $distance = $distance / 1000;
-            $seats = $data['seats'] ?? 4;
             $round_trip = $data['round_trip'] == 'true' ? true : false;
 
-            $data['price'] = $this->calculate_price($distance, $seats, $round_trip);
+            if ($round_trip) {
+                $distance = $distance + google_distance($data['end_place'], $data['start_place']);
+            }
+
+            $distance = $distance / 1000;
+
+            $data['price'] = $this->calculate_price($distance, $data['num_seats'], $round_trip);
             $data['distance'] = $distance;
             $data['stop_points'] = collect($data['stop_points']) ?? collect([]);
             $data['round_trip'] = $round_trip;

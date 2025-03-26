@@ -219,7 +219,7 @@
                                     @if ($order->round_trip)
                                         <div class="list-group-item px-0 py-3 d-flex justify-content-between border-0">
                                             <span>Loại hành trình:</span>
-                                            <span class="fw-medium text-success">Khứ hồi (x2)</span>
+                                            <span class="fw-medium text-success">Khứ hồi</span>
                                         </div>
                                     @endif
                                     @if (!empty($order->vat) && $order->vat)
