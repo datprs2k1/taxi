@@ -39,4 +39,10 @@ class OrderController extends Controller
         $this->orderService->complete($id);
         return redirect()->back();
     }
+
+    public function detail($id)
+    {
+        $order = $this->orderService->detail($id);
+        return view('pages.order.detail', compact('order'));
+    }
 }

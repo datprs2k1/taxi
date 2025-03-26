@@ -18,9 +18,9 @@ class Order extends Model
         'long_trip',
         'vat',
         'waittime',
-        'status',
         'price',
-        'distance'
+        'distance',
+        'code'
     ];
 
     public $casts = [

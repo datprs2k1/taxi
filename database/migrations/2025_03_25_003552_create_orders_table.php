@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
             $table->string('name');
             $table->string('phone');
             $table->string('start_place');
@@ -26,7 +27,6 @@ return new class extends Migration
             $table->integer('waittime')->default(0);
             $table->integer('price');
             $table->integer('distance');
-            $table->integer('status');
             $table->timestamps();
         });
     }

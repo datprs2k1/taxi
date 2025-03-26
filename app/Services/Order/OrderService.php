@@ -68,4 +68,9 @@ class OrderService extends BaseService
         $order->status = 4;
         $order->save();
     }
+
+    public function detail($id)
+    {
+        return $this->mainRepository->where('code', $id)->first();
+    }
 }

@@ -27,3 +27,5 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
         });
     });
 });
+
+Route::get('/order/{id}', [AdminOrderController::class, 'detail'])->name('order.detail');

@@ -40,7 +40,6 @@
                             </div>
                             <div class="form-group flex bg2 dc_col2 left"> <label for="numseats_sf">Loại
                                     xe</label> <select class="form-control loai_xe" id="numseats_sf">
-                                    <option value="4" selected>Xe 4 chỗ</option>
                                     <option value="5">Xe 5 chỗ</option>
                                     <option value="7">Xe 7 chỗ</option>
                                 </select></div>

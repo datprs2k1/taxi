@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendNotification;
 use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -13,22 +15,19 @@ class OrderController extends Controller
     {
         $price_per_km = 0;
 
-        switch ($seats) {
-            case 4:
-                $price_per_km = 8000;
-                break;
-            case 5:
-                $price_per_km = 8500;
-                break;
-            case 7:
-                $price_per_km = 9000;
-                break;
-            default:
-                $price_per_km = 8000; // Default to 4 seats price
-        }
-
-        if ($round_trip) {
-            $price_per_km = 6500;
+        // For distances less than 10km, use a fixed price of 12000 per km
+        if ($distance < 10) {
+            $price_per_km = 12000;
+        } else {
+            // For distances >= 10km, use seat-based pricing
+            switch ($seats) {
+                case 5:
+                    $price_per_km = $round_trip ? 5500 : 9000;
+                    break;
+                case 7:
+                    $price_per_km = $round_trip ? 6500 : 10000;
+                    break;
+            }
         }
 
         return $distance * $price_per_km;
@@ -38,9 +37,14 @@ class OrderController extends Controller
     {
         try {
             $distance = google_distance($request->start_place, $request->end_place);
-            $distance = $distance / 1000;
             $seats = $request->numseats ?? 4;
             $round_trip = $request->roundtrip == 'true' ? true : false;
+
+            if ($round_trip) {
+                $distance = $distance + google_distance($request->end_place, $request->start_place);
+            }
+
+            $distance = $distance / 1000;
 
             $quoted_price = $this->calculate_price($distance, $seats, $round_trip);
 
@@ -69,7 +73,9 @@ class OrderController extends Controller
             $data['long_trip'] = $data['long_trip'] == 'true' ? true : false;
             $data['vat'] = $data['vat'] == 'true' ? true : false;
             $data['status'] = 0;
+            $data['code'] = Str::random(6) . rand(1000, 9999);
             $order = Order::create($data);
+            SendNotification::dispatch($order);
             return $order;
         });
     }
