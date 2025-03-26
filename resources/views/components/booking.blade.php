@@ -92,7 +92,7 @@
                                             aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                                     </div>
                                     <div class="modal-body">
-                                        <h4>Giá cước đã bao gồm phí ra, vào sân bay Nội Bài, chưa bao gồm phí cầu
+                                        <h4>Giá cước đã bao gồm phí ra, vào sân bay Nội Bài, và phí cầu
                                             đường khác</h4>
                                         <div><span class="h3 price">0<sup>&#8363;</sup></span><span
                                                 class="h5 old-price">0<sup>&#8363;</sup></span></div>
