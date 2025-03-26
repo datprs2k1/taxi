@@ -167,26 +167,23 @@
                         <div class="kc-carousel_images kc-elm kc-css-19381">
                             <div class="kc-carousel-images owl-carousel-images kc-sync1 dc_home_slider"
                                 data-owl-i-options='{"items":"1","tablet":"1","mobile":"1","speed":"500","navigation":"","pagination":"yes","autoheight":"","progressbar":"","delay":"8","autoplay":"yes","showthumb":"","num_thumb":"5"}'>
-                                <div class="item"> <a href="https://www.taxinoibai.net/bang-gia/"
-                                        target="_self"><img
+                                <div class="item"> <a href="#" target="_self"><img
                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
                                             alt=""
-                                            data-lazy-src="https://www.taxinoibai.net/wp-content/uploads/2018/11/slider-1_tiny.jpg" /><noscript><img
-                                                src="https://www.taxinoibai.net/wp-content/uploads/2018/11/slider-1_tiny.jpg"
+                                            data-lazy-src="{{ asset('uploads/2018/11/slider-1_tiny.jpg') }}" /><noscript><img
+                                                src="{{ asset('uploads/2018/11/slider-1_tiny.jpg') }}"
                                                 alt="" /></noscript></a></div>
-                                <div class="item"> <a href="https://www.taxinoibai.net/bang-gia/"
-                                        target="_self"><img
+                                <div class="item"> <a href="#" target="_self"><img
                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
                                             alt=""
-                                            data-lazy-src="https://www.taxinoibai.net/wp-content/uploads/2018/11/slider-3_tiny.png" /><noscript><img
-                                                src="https://www.taxinoibai.net/wp-content/uploads/2018/11/slider-3_tiny.png"
+                                            data-lazy-src="{{ asset('uploads/2018/11/slider-3_tiny.png') }}" /><noscript><img
+                                                src="{{ asset('uploads/2018/11/slider-3_tiny.png') }}"
                                                 alt="" /></noscript></a></div>
-                                <div class="item"> <a href="https://www.taxinoibai.net/loai-xe/"
-                                        target="_self"><img
+                                <div class="item"> <a href="#" target="_self"><img
                                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E"
                                             alt=""
-                                            data-lazy-src="https://www.taxinoibai.net/wp-content/uploads/2018/07/slider-2.png" /><noscript><img
-                                                src="https://www.taxinoibai.net/wp-content/uploads/2018/07/slider-2.png"
+                                            data-lazy-src="{{ asset('uploads/2018/07/slider-2.png') }}" /><noscript><img
+                                                src="{{ asset('uploads/2018/07/slider-2.png') }}"
                                                 alt="" /></noscript></a></div>
                             </div>
                         </div>
