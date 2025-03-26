@@ -1379,7 +1379,7 @@
         }
 
         a {
-            color: #104282
+            color: #EC2029
         }
 
         @font-face {
@@ -1634,7 +1634,7 @@
                 top: 100%;
                 left: 0;
                 z-index: 999;
-                background: #104282;
+                background: #EC2029;
                 font-size: 16px
             }
 
@@ -1643,7 +1643,7 @@
             }
 
             .dc_nav_top ul li.current-menu-item a {
-                background: #ff9000
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
             }
 
             .dc_nav_top ul li.menu-item-has-children a::after {
@@ -1783,7 +1783,7 @@
             }
 
             .dc_menu_top ul.menu li.current-menu-item {
-                background: #104282
+                background: #EC2029
             }
 
             .home_kmai .home_kmai_slider {
@@ -1905,7 +1905,7 @@
         }
 
         a {
-            color: #104282;
+            color: #EC2029;
             text-decoration: none;
             background-color: transparent;
             -webkit-text-decoration-skip: objects
@@ -1934,11 +1934,11 @@
         }
 
         .current-menu-parent>a {
-            background: #ff9000
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         .navbar-nav>.active>a {
-            background: #ff9000
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         .dc_table table {
@@ -1947,7 +1947,7 @@
         }
 
         .dc_table table tr:first-child {
-            background: #104282;
+            background: #EC2029;
             color: #FFF
         }
 
@@ -2026,12 +2026,12 @@
 
         .datetimepicker th.prev:before {
             content: '⇦';
-            color: #104282
+            color: #EC2029
         }
 
         .datetimepicker th.next:before {
             content: '⇨';
-            color: #104282
+            color: #EC2029
         }
 
         .datetimepicker table {
@@ -2080,7 +2080,7 @@
             }
 
             .dc_table_m tr:first-child {
-                background: #104282;
+                background: #EC2029;
                 color: #fff
             }
 
@@ -2261,11 +2261,11 @@
         }
 
         body.kc-css-system .kc-css-500672 {
-            border-right: 1px solid #104282;
+            border-right: 1px solid #EC2029;
         }
 
         body.kc-css-system .kc-css-176438 .kc_button {
-            color: #104282;
+            color: #EC2029;
             background-color: rgba(255, 255, 255, 0);
             font-size: 20px;
             font-weight: 700;
@@ -2274,11 +2274,11 @@
         }
 
         body.kc-css-system .kc-css-176438 .kc_button:hover {
-            color: #ff9000
+            color: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         body.kc-css-system .kc-css-758892 .kc_button {
-            color: #104282;
+            color: #EC2029;
             background-color: rgba(255, 255, 255, 0);
             font-size: 20px;
             font-weight: 700;
@@ -2287,7 +2287,7 @@
         }
 
         body.kc-css-system .kc-css-758892 .kc_button:hover {
-            color: #ff9000
+            color: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         body.kc-css-system .kc-css-117587 img {
@@ -2307,11 +2307,11 @@
 
         body.kc-css-system .kc-css-709621,
         body.kc-css-system .kc-css-709621 p {
-            color: #ff9000
+            color: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         body.kc-css-system .kc-css-703953 .kc_button {
-            color: #104282;
+            color: #EC2029;
             background-color: rgba(255, 255, 255, 0);
             font-size: 30px;
             font-weight: 700;
@@ -2320,7 +2320,7 @@
         }
 
         body.kc-css-system .kc-css-703953 .kc_button:hover {
-            color: #ff9000
+            color: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         body.kc-css-system .kc-css-489636 {
@@ -2329,11 +2329,11 @@
 
         body.kc-css-system .kc-css-412596,
         body.kc-css-system .kc-css-412596 p {
-            color: #ff9000
+            color: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         body.kc-css-system .kc-css-517665 .kc_button {
-            color: #104282;
+            color: #EC2029;
             background-color: rgba(255, 255, 255, 0);
             font-size: 30px;
             font-weight: 700;
@@ -2342,11 +2342,11 @@
         }
 
         body.kc-css-system .kc-css-517665 .kc_button:hover {
-            color: #ff9000
+            color: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
         }
 
         body.kc-css-system .kc-css-994597 {
-            background: #104282;
+            background: #EC2029;
             display: none
         }
 
@@ -2362,7 +2362,7 @@
         }
 
         body.kc-css-system .kc-css-44176 {
-            background: #104282
+            background: #EC2029
         }
 
         body.kc-css-system .kc-css-989966 {
@@ -2395,7 +2395,7 @@
         }
 
         body.kc-css-system .kc-css-766684 .read-more {
-            color: #ff9000;
+            color: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%);
             margin-top: 5px
         }
 
@@ -2407,7 +2407,7 @@
         body.kc-css-system .kc-css-238438.kc_title,
         body.kc-css-system .kc-css-238438 .kc_title,
         body.kc-css-system .kc-css-238438 .kc_title a.kc_title_link {
-            color: #104282;
+            color: #EC2029;
             font-size: 20px;
             text-transform: uppercase
         }
@@ -2417,7 +2417,7 @@
         }
 
         body.kc-css-system .kc-css-5099 .divider_inner {
-            border-color: #104282;
+            border-color: #EC2029;
             border-style: solid;
             border-width: 1px
         }
@@ -2466,7 +2466,7 @@
         body.kc-css-system .kc-css-247956.kc_title,
         body.kc-css-system .kc-css-247956 .kc_title,
         body.kc-css-system .kc-css-247956 .kc_title a.kc_title_link {
-            color: #104282;
+            color: #EC2029;
             font-size: 20px;
             text-transform: uppercase
         }
@@ -2476,7 +2476,7 @@
         }
 
         body.kc-css-system .kc-css-726804 .divider_inner {
-            border-color: #104282;
+            border-color: #EC2029;
             border-style: solid;
             border-width: 1px
         }
@@ -2524,7 +2524,7 @@
         body.kc-css-system .kc-css-195830.kc_title,
         body.kc-css-system .kc-css-195830 .kc_title,
         body.kc-css-system .kc-css-195830 .kc_title a.kc_title_link {
-            color: #104282;
+            color: #EC2029;
             font-size: 20px;
             text-align: center;
             margin-bottom: 20px
@@ -2668,7 +2668,7 @@
         }
 
         body.kc-css-system .kc-css-352817 {
-            background: #104282;
+            background: #EC2029;
             display: none
         }
 

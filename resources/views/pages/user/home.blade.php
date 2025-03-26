@@ -15,21 +15,21 @@
                         <div class="kc-elm kc-css-724720 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/1.png') }}" alt="Số 1"
                                     width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Gọi điện trực tiếp (24/7)<br /> </span>
+                            <h3><span style="color: #EC2029; font-size: 20px;">Gọi điện trực tiếp (24/7)<br /> </span>
                             </h3>
-                            <p><span style="color: #ff9000;">Tổng đài</span> <span style="color: #104282;"><strong><span
+                            <p><span style="color: #ff9000;">Tổng đài</span> <span style="color: #EC2029;"><strong><span
                                             style="font-size: 24px;"><a class="tdhotline" title=""
                                                 href="tel:{{ $config->where('key', 'phone')->first()->value }}"><br />
                                                 {{ $config->where('key', 'phone')->first()->value }} </a>
                                         </span></strong></span> <span style="color: #ff9000;">Hotline</span> <span
-                                    style="color: #104282;"><strong><span style="font-size: 24px;"><a class="tdhotline"
+                                    style="color: #EC2029;"><strong><span style="font-size: 24px;"><a class="tdhotline"
                                                 href="tel:{{ $config->where('key', 'phone')->first()->value }}">{{ $config->where('key', 'phone')->first()->value }}</a></span></strong></span>
                             </p>
                         </div>
                         <div class="kc-elm kc-css-208875 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/2.png') }}" alt="Số 2"
                                     width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Đăng ký trên website</span></h3>
+                            <h3><span style="color: #EC2029; font-size: 20px;">Đăng ký trên website</span></h3>
                             <p><span style="font-family: 'Bebeboo';">Truy cập <a href="{{ url('/') }}">
                                         {{ $config->where('key', 'title')->first()->value }} </a> và nhập số điện thoại
                                     và địa chỉ của quý khách, <strong>chúng tôi</strong> sẽ liên lạc lại ngay trong ít
@@ -38,8 +38,7 @@
                         <div class="kc-elm kc-css-528428 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/3.png') }}" alt=""
                                     width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Chat Online – </span><span
-                                    style="font-size: 20px; color: #104282;">084.790.4444</span></h3>
+                            <h3><span style="color: #EC2029; font-size: 20px;">Chat Online – </span></h3>
                             <p>
                                 <a href="{{ $config->where('key', 'facebook')->first()->value }}"><img
                                         class="alignnone size-full wp-image-1716"
@@ -69,14 +68,7 @@
                                         width="40" height="40" /></a>
                             </p>
                         </div>
-                        <div class="kc-elm kc-css-653593 kc_text_block home_hinh_thuc_item">
-                            <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/4.png') }}" alt=""
-                                    width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Đến văn phòng công ty</span></h3>
-                            <p><img class="alignnone"
-                                    src="{{ asset('uploads/2019/08/Screen-Shot-2019-08-14-at-16.43.51.png') }}"
-                                    alt="" width="310" height="131" /></p>
-                        </div>
+
                     </div>
                 </div>
                 <div class="kc-elm kc-css-606785 kc_col-sm-6 kc-animated kc-animate-eff-fadeInRight kc_column kc_col-sm-6">
@@ -90,14 +82,14 @@
                         <div class="kc-elm kc-css-559676 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/tien_mat.png') }}"
                                     alt="" width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Tiền mặt</span></h3>
+                            <h3><span style="color: #EC2029; font-size: 20px;">Tiền mặt</span></h3>
                             <p>Sau khi kết thúc hành trình, Quý khách vui lòng thanh toán trực tiếp cho lái xe chi phí
                                 của chuyến đi bằng tiền mặt.</p>
                         </div>
                         <div class="kc-elm kc-css-261565 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/chuyen_khoan.png') }}"
                                     alt="" width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Chuyển khoản</span></h3>
+                            <h3><span style="color: #EC2029; font-size: 20px;">Chuyển khoản</span></h3>
                             <p>Quý khách có thể thanh toán bằng cách chuyển khoản vào một trong các tài khoản do công ty
                                 chỉ định:
                             </p>
@@ -105,14 +97,14 @@
                         <div class="kc-elm kc-css-844510 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/van_phong.png') }}"
                                     alt="" width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Trực tiếp tại văn phòng</span></h3>
+                            <h3><span style="color: #EC2029; font-size: 20px;">Trực tiếp tại văn phòng</span></h3>
                             <p>Quý khách vui lòng đến văn phòng công ty tại địa chỉ tại
                                 {{ $config->where('key', 'address')->first()->value }}</p>
                         </div>
                         <div class="kc-elm kc-css-790555 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/tra_sau.png') }}"
                                     alt="" width="52" height="61" /></p>
-                            <h3><span style="color: #104282; font-size: 20px;">Trả sau</span></h3>
+                            <h3><span style="color: #EC2029; font-size: 20px;">Trả sau</span></h3>
                             <p>Chỉ áp dụng cho doanh nghiệp có hợp đồng với chúng tôi.</p>
                         </div>
                     </div>
@@ -130,7 +122,7 @@
                             <div class="kc-elm kc-css-812800 kc_col-sm-6 kc_column_inner kc_col-sm-6">
                                 <div class="kc_wrapper kc-col-inner-container">
                                     <h3 class="dc_dgdt_title"
-                                        style="color: #104282; font-size: 20px; text-transform: uppercase; margin: 0; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid #104282">
+                                        style="color: #EC2029; font-size: 20px; text-transform: uppercase; margin: 0; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid #EC2029">
                                         Khách hàng nói về chúng tôi</h3>
                                     <div class="dc_home_danh_gia_box">
                                         <div class="danhgia_prev"></div>
@@ -159,7 +151,7 @@
                             </div>
                             <div class="kc-elm kc-css-108502 kc_col-sm-6 kc_column_inner kc_col-sm-6">
                                 <div class="kc_wrapper kc-col-inner-container">
-                                    <h3 style="font-size:20px; color:#104282; text-transform: uppercase; margin: 0; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid"
+                                    <h3 style="font-size:20px; color:#EC2029; text-transform: uppercase; margin: 0; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid"
                                         class="dc_dgdt_title">Đối tác</h3>
                                     <div class="dc_home_danh_gia_box">
                                         <div class="danhgia_prev"></div>

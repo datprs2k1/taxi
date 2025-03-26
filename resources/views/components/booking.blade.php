@@ -24,7 +24,7 @@
                                         class="form-control" id="endPoint_tf" placeholder="Điểm đến"
                                         data-toggle="tooltip" data-placement="top" title="Xin vui lòng nhập Điểm Đến">
                                     <input type="hidden" id="endPoint_tf_loc">
-                                </div> <button type="button" class="btn btn-primary" id="rotate_btn" rel="tooltip"
+                                </div> <button type="button" class="btn btn-warning" id="rotate_btn" rel="tooltip"
                                     data-placement="top" title="Đảo chiều"><i class="fa fa-refresh"
                                         aria-hidden="true"></i></button>
                             </div>

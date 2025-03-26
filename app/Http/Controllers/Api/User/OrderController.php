@@ -84,7 +84,7 @@ class OrderController extends Controller
 
             $distance = $distance / 1000;
 
-            $data['price'] = $this->calculate_price($distance, $data['num_seats'], $round_trip, $data['waittime']);
+            $data['price'] = $this->calculate_price($distance, $data['num_seats'], $round_trip, $data['wait_time']);
             $data['distance'] = $distance;
             $data['stop_points'] = collect($data['stop_points']) ?? collect([]);
             $data['round_trip'] = $round_trip;

@@ -1,7 +1,7 @@
 .home_datxe {
   float: left;
   padding: 20px 30px;
-  background: linear-gradient(#0e70bb, #104282);
+  background: linear-gradient(20.12deg, rgba(217, 26, 33, 0.8) 19.6%, rgba(111, 0, 0, 0.8) 93.86%);
 }
 
 .pac-container {
@@ -16,10 +16,10 @@
   line-height: 40px;
   margin-bottom: 15px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #1a84d5;
+  border-bottom: 1px solid #ffffff;
 }
 .form_main ul.nav li:first-child {
-  border-right: 1px solid #1a84d5;
+  border-right: 1px solid #ffffff;
 }
 .form_main ul.nav li a {
   line-height: 40px;
@@ -67,11 +67,15 @@
   position: relative;
 }
 .form_main form.info_form .flex label {
-  display: block;
-  width: 120px;
-  text-align: center;
-  color: #ffffff;
-  margin: 0;
+    display: block;
+    width: 120px;
+    text-align: center;
+    color: #333333;
+    margin: 0;
+    border-right: 1px solid #D1D3D4;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 17.9px;
 }
 .form_main form.info_form .flex input,
 .form_main form.info_form .flex select {
@@ -80,11 +84,11 @@
   border-bottom-right-radius: 5px;
 }
 .form_main form.info_form .flex.bg1 {
-  background: #003170;
+  background: #ffffff;
   border-radius: 5px;
 }
 .form_main form.info_form .flex.bg2 {
-  background: #0060bb;
+  background: #ffffff;
   border-radius: 5px;
 }
 .form_main form.info_form .flex .invalid-feedback {
@@ -125,7 +129,7 @@
   -moz-transition: all 0.15s ease-out 0s;
   -o-transition: all 0.15s ease-out 0s;
   transition: all 0.15s ease-out 0s;
-  background: #003170;
+  background: #ffffff;
   border: 0;
   cursor: pointer;
   outline: none;
@@ -169,7 +173,7 @@
   line-height: 35px;
   border-radius: 5px;
   width: 100%;
-  background: #0077d3;
+  background: #ffffff;
 }
 .form_main form.info_form .dc_col2 {
   width: calc(50% - 5px);
@@ -190,7 +194,7 @@
   display: block;
   width: 110px;
   padding-left: 10px;
-  color: #ffffff;
+  color: #333333;
 }
 .form_main form.info_form .dc_col2 input.tgian_don,
 .form_main form.info_form .dc_col2 input.tgian_cho {
@@ -217,8 +221,8 @@
 }
 .form_main form.info_form .loai_xe,
 .form_main form.info_form .diem_dung {
-  background: #0077d3;
-  color: #ffffff;
+  background: #ffffff;
+  color: #333333;
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -228,7 +232,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: #0077d3
+  background: #ffffff
     url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiICAgaWQ9IkxheWVyXzEiICAgZGF0YS1uYW1lPSJMYXllciAxIiAgIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIiAgIHZlcnNpb249IjEuMSIgICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkxIHIxMzcyNSIgICBzb2RpcG9kaTpkb2NuYW1lPSJkb3dubG9hZC5zdmciPiAgPG1ldGFkYXRhICAgICBpZD0ibWV0YWRhdGE0MjAyIj4gICAgPHJkZjpSREY+ICAgICAgPGNjOldvcmsgICAgICAgICByZGY6YWJvdXQ9IiI+ICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4gICAgICAgIDxkYzp0eXBlICAgICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPiAgICAgIDwvY2M6V29yaz4gICAgPC9yZGY6UkRGPiAgPC9tZXRhZGF0YT4gIDxzb2RpcG9kaTpuYW1lZHZpZXcgICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIgICAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IiAgICAgYm9yZGVyb3BhY2l0eT0iMSIgICAgIG9iamVjdHRvbGVyYW5jZT0iMTAiICAgICBncmlkdG9sZXJhbmNlPSIxMCIgICAgIGd1aWRldG9sZXJhbmNlPSIxMCIgICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwIiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIgICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTkyMCIgICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjEwMjciICAgICBpZD0ibmFtZWR2aWV3NDIwMCIgICAgIHNob3dncmlkPSJmYWxzZSIgICAgIGlua3NjYXBlOnpvb209Ijg0LjMiICAgICBpbmtzY2FwZTpjeD0iMi40NzQ5OTk5IiAgICAgaW5rc2NhcGU6Y3k9IjUiICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMTkyMCIgICAgIGlua3NjYXBlOndpbmRvdy15PSIyNyIgICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJMYXllcl8xIiAvPiAgPGRlZnMgICAgIGlkPSJkZWZzNDE5MCI+ICAgIDxzdHlsZSAgICAgICBpZD0ic3R5bGU0MTkyIj4uY2xzLTJ7ZmlsbDojNDQ0O308L3N0eWxlPiAgPC9kZWZzPiAgPHRpdGxlICAgICBpZD0idGl0bGU0MTk0Ij5hcnJvd3M8L3RpdGxlPiAgPHBvbHlnb24gICAgIGNsYXNzPSJjbHMtMiIgICAgIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIiAgICAgaWQ9InBvbHlnb240MTk4IiAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MSIgLz48L3N2Zz4=)
     no-repeat 100% 50%;
   padding-right: 20px;
@@ -258,8 +262,8 @@
   height: 50px;
   line-height: 50px;
   padding: 0 50px;
-  color: #ffffff;
-  background: #0077d3;
+  color: #333333;
+  background: #ffffff;
   border-radius: 5px;
   text-transform: uppercase;
   font-size: 14px;
@@ -415,7 +419,7 @@
 .widget_form {
   float: left;
   padding: 10px;
-  background: linear-gradient(#0e70bb, #104282);
+  background: linear-gradient(20.12deg, rgba(217, 26, 33, 0.8) 19.6%, rgba(111, 0, 0, 0.8) 93.86%);
   border-radius: 5px;
 }
 .widget_form .form_main ul.nav {
