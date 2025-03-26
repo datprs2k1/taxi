@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
-    protected function calculate_price($distance, $seats, $round_trip = false)
+    protected function calculate_price($distance, $seats, $round_trip = false, $wait_time = 0)
     {
         $price_per_km = 0;
 
@@ -32,6 +32,17 @@ class OrderController extends Controller
 
         $price = $distance * $price_per_km;
 
+        // Add wait time charges for round trips
+        if ($round_trip && $wait_time > 0) {
+            // First hour is free for round trips
+            if ($wait_time > 1) {
+                // Calculate additional wait time beyond the first hour
+                $additional_wait_time = ceil($wait_time - 1);
+                // Charge 40000 per additional hour
+                $price += $additional_wait_time * 40000;
+            }
+        }
+
         // Round the price to the nearest thousand
         return round($price / 1000) * 1000;
     }
@@ -42,14 +53,14 @@ class OrderController extends Controller
             $distance = google_distance($request->start_place, $request->end_place);
             $seats = $request->numseats ?? 4;
             $round_trip = $request->roundtrip == 'true' ? true : false;
-
+            $wait_time = $request->waittime ?? 0;
             if ($round_trip) {
                 $distance = $distance + google_distance($request->end_place, $request->start_place);
             }
 
             $distance = $distance / 1000;
 
-            $quoted_price = $this->calculate_price($distance, $seats, $round_trip);
+            $quoted_price = $this->calculate_price($distance, $seats, $round_trip, $wait_time);
 
             return response()->json([
                 'quoted_price' => $quoted_price,
@@ -73,7 +84,7 @@ class OrderController extends Controller
 
             $distance = $distance / 1000;
 
-            $data['price'] = $this->calculate_price($distance, $data['num_seats'], $round_trip);
+            $data['price'] = $this->calculate_price($distance, $data['num_seats'], $round_trip, $data['waittime']);
             $data['distance'] = $distance;
             $data['stop_points'] = collect($data['stop_points']) ?? collect([]);
             $data['round_trip'] = $round_trip;
