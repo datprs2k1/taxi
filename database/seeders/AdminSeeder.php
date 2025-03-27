@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
             User::factory()->create([
                 'username' => 'admin',
                 'phone_no' => '081234567890',
-                'password' => Hash::make('123456'),
+                'password' => Hash::make('Hoangdat9a@'),
             ]);
         });
     }
