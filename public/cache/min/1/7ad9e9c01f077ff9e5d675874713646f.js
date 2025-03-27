@@ -23978,7 +23978,6 @@ $(document).ready(function () {
         sessionStorage.setItem("lastPrice", "");
     });
     function setDisableAndAirport($input_name, $is_airport = !0, $status = !0) {
-        $("#" + $input_name).prop("disabled", $status);
         if ($is_airport) {
             $("#" + $input_name).val("Nội Bài");
             $("#" + $input_name + "_loc").val("(21.213935,105.800107)");
