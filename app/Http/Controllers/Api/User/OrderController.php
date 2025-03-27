@@ -22,10 +22,10 @@ class OrderController extends Controller
             // For distances >= 10km, use seat-based pricing
             switch ($seats) {
                 case 5:
-                    $price_per_km = $round_trip ? 5500 : 9000;
+                    $price_per_km = $round_trip ? 6800 : 9000;
                     break;
                 case 7:
-                    $price_per_km = $round_trip ? 6500 : 10000;
+                    $price_per_km = $round_trip ? 7800 : 10000;
                     break;
             }
         }
