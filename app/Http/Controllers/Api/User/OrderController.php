@@ -22,24 +22,24 @@ class OrderController extends Controller
             // For distances >= 10km, use tiered pricing based on distance and seats
             if (!$round_trip) {
                 if ($seats == 5) {
-                    if ($distance <= 20) {
+                    if ($distance <= 50) {
                         $price = $distance * 10000;
-                    } elseif ($distance <= 50) {
-                        $price = 20 * 10000 + ($distance - 20) * 9500;
                     } elseif ($distance <= 100) {
-                        $price = 20 * 10000 + 30 * 9500 + ($distance - 50) * 7000;
+                        $price = 50 * 10000 + ($distance - 50) * 9000;
+                    } elseif ($distance <= 150) {
+                        $price = 50 * 10000 + 50 * 9000 + ($distance - 100) * 8000;
                     } else {
-                        $price = 20 * 10000 + 30 * 9500 + 50 * 7000 + ($distance - 100) * 7000;
+                        $price = 50 * 10000 + 50 * 9000 + 50 * 8000 + ($distance - 150) * 7000;
                     }
                 } elseif ($seats == 7) {
-                    if ($distance <= 20) {
+                    if ($distance <= 50) {
                         $price = $distance * 11000;
-                    } elseif ($distance <= 50) {
-                        $price = 20 * 11000 + ($distance - 20) * 10500;
                     } elseif ($distance <= 100) {
-                        $price = 20 * 11000 + 30 * 10500 + ($distance - 50) * 7000;
+                        $price = 50 * 11000 + ($distance - 50) * 10000;
+                    } elseif ($distance <= 150) {
+                        $price = 50 * 11000 + 50 * 10000 + ($distance - 100) * 9000;
                     } else {
-                        $price = 20 * 11000 + 30 * 10500 + 50 * 7000 + ($distance - 100) * 7000;
+                        $price = 50 * 11000 + 50 * 10000 + 50 * 9000 + ($distance - 150) * 7000;
                     }
                 }
             } else {
