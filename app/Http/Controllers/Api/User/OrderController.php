@@ -13,24 +13,47 @@ class OrderController extends Controller
 {
     protected function calculate_price($distance, $seats, $round_trip = false, $wait_time = 0)
     {
-        $price_per_km = 0;
+        $price = 0;
 
         // For distances less than 10km, use a fixed price of 12000 per km
         if ($distance < 10) {
-            $price_per_km = 12000;
+            $price = $distance * 12000;
         } else {
-            // For distances >= 10km, use seat-based pricing
-            switch ($seats) {
-                case 5:
-                    $price_per_km = $round_trip ? 6800 : 9000;
-                    break;
-                case 7:
-                    $price_per_km = $round_trip ? 7800 : 10000;
-                    break;
+            // For distances >= 10km, use tiered pricing based on distance and seats
+            if (!$round_trip) {
+                if ($seats == 5) {
+                    if ($distance <= 20) {
+                        $price = $distance * 10000;
+                    } elseif ($distance <= 50) {
+                        $price = 20 * 10000 + ($distance - 20) * 9500;
+                    } elseif ($distance <= 100) {
+                        $price = 20 * 10000 + 30 * 9500 + ($distance - 50) * 7000;
+                    } else {
+                        $price = 20 * 10000 + 30 * 9500 + 50 * 7000 + ($distance - 100) * 7000;
+                    }
+                } elseif ($seats == 7) {
+                    if ($distance <= 20) {
+                        $price = $distance * 11000;
+                    } elseif ($distance <= 50) {
+                        $price = 20 * 11000 + ($distance - 20) * 10500;
+                    } elseif ($distance <= 100) {
+                        $price = 20 * 11000 + 30 * 10500 + ($distance - 50) * 7000;
+                    } else {
+                        $price = 20 * 11000 + 30 * 10500 + 50 * 7000 + ($distance - 100) * 7000;
+                    }
+                }
+            } else {
+                // Keep existing round trip logic
+                switch ($seats) {
+                    case 5:
+                        $price = $distance * 6800;
+                        break;
+                    case 7:
+                        $price = $distance * 7800;
+                        break;
+                }
             }
         }
-
-        $price = $distance * $price_per_km;
 
         // Add wait time charges for round trips
         if ($round_trip && $wait_time > 0) {
