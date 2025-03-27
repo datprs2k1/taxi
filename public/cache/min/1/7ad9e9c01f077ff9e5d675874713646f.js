@@ -24151,7 +24151,7 @@ $(document).ready(function () {
                     if (responseText == "") {
                         sessionStorage.setItem("lastSearch", "");
                         $("#errorContentModal").html(
-                            "Lỗi đường truyền, Quý Khách vui lòng liên hệ hotline <b>1900 1888</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
+                            "Lỗi đường truyền, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
                         );
                         $("#errorModal").modal("show");
                         return;
@@ -24183,7 +24183,7 @@ $(document).ready(function () {
                 })
                 .fail(function (jqXHR, textStatus) {
                     $("#errorContentModal").html(
-                        "Đã có lỗi xảy ra trong quá trình báo giá, Quý Khách vui lòng liên hệ hotline <b>1900 1888</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
+                        "Đã có lỗi xảy ra trong quá trình báo giá, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
                     );
                     $("#errorModal").modal("show");
                     console.warn("Request failed: " + textStatus);
@@ -24256,7 +24256,7 @@ $(document).ready(function () {
             .done(function (responseText) {
                 if (responseText == "") {
                     $("#errorContentModal").html(
-                        "Lỗi đường truyền, Quý Khách vui lòng liên hệ hotline <b>1900 1888</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
+                        "Lỗi đường truyền, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
                     );
                     $("#errorModal").modal("show");
                     return;
@@ -24288,7 +24288,7 @@ $(document).ready(function () {
             })
             .fail(function (jqXHR, textStatus) {
                 $("#errorContentModal").html(
-                    "Đã có lỗi xảy ra trong quá trình đặt xe, Quý Khách vui lòng liên hệ hotline <b>1900 1888</b> để đặt xe. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
+                    "Đã có lỗi xảy ra trong quá trình đặt xe, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để đặt xe. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
                 );
                 $("#errorModal").modal("show");
                 console.warn("Request failed: " + textStatus);
