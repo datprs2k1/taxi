@@ -24007,10 +24007,69 @@ $(document).ready(function () {
             setDisableAndAirport($start_place, !1, !1);
         }
     });
+    // Function to populate modal - always available
+    function populateBookingModalDirectly() {
+        try {
+            var phone = $("#customer_phone_tf").val() || "";
+            var name = $("#customer_name_tf").val() || "";
+            var startPlace = $("#startPoint_tf").val() || "";
+            var endPlace = $("#endPoint_tf").val() || "";
+            var numSeats = $("#numseats_sf").val() || "5";
+            var pickupTime = $("#pickuptime_tif").val() || "";
+            var roundTrip = $("#roundtrip_cf").prop("checked") || false;
+            var vat = $("#vat_cf").prop("checked") || false;
+            var seatText =
+                numSeats == "5"
+                    ? "Xe 5 chỗ"
+                    : numSeats == "7"
+                    ? "Xe 7 chỗ"
+                    : "Xe 5 chỗ";
+            // Trim values
+            phone = String(phone).trim();
+            name = String(name).trim();
+            startPlace = String(startPlace).trim();
+            endPlace = String(endPlace).trim();
+            pickupTime = String(pickupTime).trim();
+            // Populate modal
+            $("#confirm_start_place").text(startPlace || "-");
+            $("#confirm_end_place").text(endPlace || "-");
+            $("#confirm_num_seats").text(seatText);
+            $("#confirm_pickup_time").text(pickupTime || "-");
+            $("#confirm_phone").text(phone || "-");
+            $("#confirm_name").text(name || "-");
+            $("#confirm_round_trip_row").css(
+                "display",
+                roundTrip ? "block" : "none"
+            );
+            $("#confirm_vat_row").css("display", vat ? "block" : "none");
+            $("#bookingModal .price-section").hide();
+            // Copy to hidden fields
+            $("#customer_phone_tf_modal").val(phone);
+            $("#customer_name_tf_modal").val(name);
+        } catch (e) {
+            console.error("Error populating modal:", e);
+        }
+    }
+
     $("#bookingModal").on("shown.bs.modal", function (e) {
         if ($("#vat_cf").is(":checked")) {
             $(".vat-info").show();
         } else $(".vat-info").hide();
+        // Populate modal with form data - try multiple times
+        if (window.populatebookingModal) {
+            window.populateBookingModal();
+        }
+        populateBookingModalDirectly();
+        setTimeout(function () {
+            populateBookingModalDirectly();
+        }, 100);
+        setTimeout(function () {
+            populateBookingModalDirectly();
+        }, 300);
+    });
+    $("#bookingModal").on("show", function (e) {
+        // Populate modal before it shows
+        console.log("SHOWWWWWWWWWWWWWWWWWWW");
     });
     $("#quickBook_btn").click(function (e) {
         e.preventDefault();
@@ -24048,33 +24107,126 @@ $(document).ready(function () {
     });
     $("#bookNow_btn").click(function (e) {
         e.preventDefault();
-        var $start_place = autocompletesBaseWraps[0],
-            $end_place = autocompletesBaseWraps[1],
-            $bookNow_btn = $("#bookNow_btn");
+        var $bookNow_btn = $("#bookNow_btn");
+
+        // Validation functions
+        function validatePhone(phone) {
+            var cleanPhone = phone.replace(/[^0-9]/g, "");
+            return /^[0-9]{10,11}$/.test(cleanPhone);
+        }
+        function validateName(name) {
+            var trimmed = name.trim();
+            return trimmed.length >= 2 && trimmed.length <= 100;
+        }
+        function validatePlace(place) {
+            return place.trim().length >= 3;
+        }
+        function showFieldError(fieldId, message) {
+            var $field = $(fieldId);
+            $field.addClass("is-invalid");
+            if (!$field.data("bs.tooltip")) {
+                $field.tooltip({ title: message, placement: "top" });
+            } else {
+                $field.attr("data-original-title", message);
+            }
+            $field.tooltip("show");
+        }
+        function clearFieldError(fieldId) {
+            var $field = $(fieldId);
+            $field.removeClass("is-invalid");
+            $field.tooltip("dispose");
+        }
+
+        var isValid = true;
+
+        // Validate start place
+        var startPlace = $("#startPoint_tf").val().trim();
         if (
-            $("#" + $start_place + "_loc")
+            $("#" + autocompletesBaseWraps[0] + "_loc")
                 .val()
                 .trim() == ""
         ) {
-            $("#" + $start_place).val();
-            $("#" + $start_place).addClass("is-invalid");
-            $("#" + $start_place).tooltip("show");
-            return;
+            $("#" + autocompletesBaseWraps[0]).val();
+            $("#" + autocompletesBaseWraps[0]).addClass("is-invalid");
+            $("#" + autocompletesBaseWraps[0]).tooltip("show");
+            isValid = false;
+        } else if (!validatePlace(startPlace)) {
+            showFieldError(
+                "#startPoint_tf",
+                "Vui lòng nhập điểm đi (ít nhất 3 ký tự)"
+            );
+            isValid = false;
+        } else {
+            clearFieldError("#startPoint_tf");
         }
+
+        // Validate end place
+        var endPlace = $("#endPoint_tf").val().trim();
         if (
-            $("#" + $end_place + "_loc")
+            $("#" + autocompletesBaseWraps[1] + "_loc")
                 .val()
                 .trim() == ""
         ) {
-            $("#" + $end_place).val();
-            $("#" + $end_place).addClass("is-invalid");
-            $("#" + $end_place).tooltip("show");
-            return;
+            $("#" + autocompletesBaseWraps[1]).val();
+            $("#" + autocompletesBaseWraps[1]).addClass("is-invalid");
+            $("#" + autocompletesBaseWraps[1]).tooltip("show");
+            isValid = false;
+        } else if (!validatePlace(endPlace)) {
+            showFieldError(
+                "#endPoint_tf",
+                "Vui lòng nhập điểm đến (ít nhất 3 ký tự)"
+            );
+            isValid = false;
+        } else {
+            clearFieldError("#endPoint_tf");
         }
+
+        // Validate pickup time
         if ($("#pickuptime_tif").val().trim() == "") {
             $("#pickuptime_tif").addClass("is-invalid");
             $("#pickuptime_tif").tooltip("show");
-            return;
+            isValid = false;
+        } else {
+            clearFieldError("#pickuptime_tif");
+        }
+
+        // Validate phone number
+        var phone = $("#customer_phone_tf").val().trim();
+        var cleanPhone = phone.replace(/[^0-9]/g, "");
+        if (phone === "") {
+            showFieldError("#customer_phone_tf", "Vui lòng nhập số điện thoại");
+            isValid = false;
+        } else if (!validatePhone(phone)) {
+            showFieldError(
+                "#customer_phone_tf",
+                "Số điện thoại không hợp lệ (10-11 chữ số)"
+            );
+            isValid = false;
+        } else {
+            // Update field with cleaned phone number
+            if (cleanPhone !== phone) {
+                $("#customer_phone_tf").val(cleanPhone);
+            }
+            clearFieldError("#customer_phone_tf");
+        }
+
+        // Validate name
+        var name = $("#customer_name_tf").val().trim();
+        if (name === "") {
+            showFieldError("#customer_name_tf", "Vui lòng nhập họ và tên");
+            isValid = false;
+        } else if (!validateName(name)) {
+            showFieldError(
+                "#customer_name_tf",
+                "Họ và tên phải có từ 2 đến 100 ký tự"
+            );
+            isValid = false;
+        } else {
+            clearFieldError("#customer_name_tf");
+        }
+
+        if (!isValid) {
+            return false;
         }
         var $start_place = $("#" + autocompletesBaseWraps[0]).val(),
             $end_place = $("#" + autocompletesBaseWraps[1]).val(),
@@ -24097,108 +24249,136 @@ $(document).ready(function () {
         if (stopPoints.length > 0) {
             $stop_points = JSON.stringify(stopPoints);
         }
-        $lastSearch =
-            sessionStorage.getItem("lastSearch") == undefined
-                ? ""
-                : sessionStorage.getItem("lastSearch");
-        $newSearch =
-            $start_place +
-            "|" +
-            $end_place +
-            "|" +
-            $numseats +
-            "|" +
-            $pickuptime +
-            "|" +
-            $waittime +
-            "|" +
-            $roundtrip +
-            "|" +
-            $vat +
-            "|" +
-            $longtrip +
-            "|" +
-            $promocode +
-            "|" +
-            $stop_points;
-        if ($lastSearch != $newSearch || $lastSearch == "") {
-            $bookNow_btn.prop("disabled", !0);
-            $bookNow_btn.html(
-                '<i class="fas fa-spinner fa-spin"></i> Vui lòng đợi...'
-            );
-            sessionStorage.setItem("lastSearch", $newSearch);
-            $(".success-promo-div").hide();
-            $("#bookingModal .old-price").hide();
-            $.ajax({
-                method: "POST",
-                url: "/api/user/price",
-                data: {
-                    do: "requestPrice",
-                    start_place: $start_place,
-                    end_place: $end_place,
-                    stop_points: $stop_points,
-                    numseats: $numseats,
-                    pickuptime: $pickuptime,
-                    waittime: $waittime,
-                    roundtrip: $roundtrip,
-                    longtrip: $longtrip,
-                    vat: $vat,
-                    ref: $ref,
-                    promocode: $promocode,
-                },
-            })
-                .done(function (responseText) {
-                    if (responseText == "") {
-                        sessionStorage.setItem("lastSearch", "");
-                        $("#errorContentModal").html(
-                            "Lỗi đường truyền, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
-                        );
-                        $("#errorModal").modal("show");
-                        return;
-                    }
-                    var results = responseText;
-                    if (results.status == !1) {
-                        sessionStorage.setItem("lastSearch", "");
-                        $("#errorContentModal").html(results.message);
-                        $("#errorModal").modal("show");
-                        return;
-                    }
-                    if (results.new_price != undefined) {
-                        $last_price = addCommas(results.new_price);
-                        sessionStorage.setItem("newPrice", 1);
-                        $(".success-promo-div").show();
-                        $("#bookingModal .old-price").show();
-                        $("#bookingModal .old-price").html(
-                            addCommas(results.quoted_price) +
-                                "<sup>&#8363;</sup>"
-                        );
-                    } else {
-                        sessionStorage.setItem("newPrice", 0);
-                        $last_price = addCommas(results.quoted_price);
-                    }
-                    $("#bookingModal .price").html(
-                        $last_price + "<sup>&#8363;</sup>"
-                    );
-                    $("#bookingModal").modal("show");
-                })
-                .fail(function (jqXHR, textStatus) {
-                    $("#errorContentModal").html(
-                        "Đã có lỗi xảy ra trong quá trình báo giá, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
-                    );
-                    $("#errorModal").modal("show");
-                    console.warn("Request failed: " + textStatus);
-                })
-                .always(function () {
-                    $("#startPoint_tf").removeClass("is-invalid");
-                    $("#startPoint_tf").tooltip("dispose");
-                    $bookNow_btn.prop("disabled", !1);
-                    $bookNow_btn.html(
-                        'Kiểm Tra Giá <i class="fas fa-arrow-circle-right"></i>'
-                    );
-                });
-        } else {
-            $("#bookingModal").modal("show");
-        }
+        // Tạm ẩn tính quãng đường và giá tiền - bỏ qua request giá
+        // $lastSearch =
+        //     sessionStorage.getItem("lastSearch") == undefined
+        //         ? ""
+        //         : sessionStorage.getItem("lastSearch");
+        // $newSearch =
+        //     $start_place +
+        //     "|" +
+        //     $end_place +
+        //     "|" +
+        //     $numseats +
+        //     "|" +
+        //     $pickuptime +
+        //     "|" +
+        //     $waittime +
+        //     "|" +
+        //     $roundtrip +
+        //     "|" +
+        //     $vat +
+        //     "|" +
+        //     $longtrip +
+        //     "|" +
+        //     $promocode +
+        //     "|" +
+        //     $stop_points;
+        // if ($lastSearch != $newSearch || $lastSearch == "") {
+        //     $bookNow_btn.prop("disabled", !0);
+        //     $bookNow_btn.html(
+        //         '<i class="fas fa-spinner fa-spin"></i> Vui lòng đợi...'
+        //     );
+        //     sessionStorage.setItem("lastSearch", $newSearch);
+        //     $(".success-promo-div").hide();
+        //     $("#bookingModal .old-price").hide();
+        //     $.ajax({
+        //         method: "POST",
+        //         url: "/api/user/price",
+        //         data: {
+        //             do: "requestPrice",
+        //             start_place: $start_place,
+        //             end_place: $end_place,
+        //             stop_points: $stop_points,
+        //             numseats: $numseats,
+        //             pickuptime: $pickuptime,
+        //             waittime: $waittime,
+        //             roundtrip: $roundtrip,
+        //             longtrip: $longtrip,
+        //             vat: $vat,
+        //             ref: $ref,
+        //             promocode: $promocode,
+        //         },
+        //     })
+        //         .done(function (responseText) {
+        //             if (responseText == "") {
+        //                 sessionStorage.setItem("lastSearch", "");
+        //                 $("#errorContentModal").html(
+        //                     "Lỗi đường truyền, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
+        //                 );
+        //                 $("#errorModal").modal("show");
+        //                 return;
+        //             }
+        //             var results = responseText;
+        //             if (results.status == !1) {
+        //                 sessionStorage.setItem("lastSearch", "");
+        //                 $("#errorContentModal").html(results.message);
+        //                 $("#errorModal").modal("show");
+        //                 return;
+        //             }
+        //             if (results.new_price != undefined) {
+        //                 $last_price = addCommas(results.new_price);
+        //                 sessionStorage.setItem("newPrice", 1);
+        //                 $(".success-promo-div").show();
+        //                 $("#bookingModal .old-price").show();
+        //                 $("#bookingModal .old-price").html(
+        //                     addCommas(results.quoted_price) +
+        //                         "<sup>&#8363;</sup>"
+        //                 );
+        //             } else {
+        //                 sessionStorage.setItem("newPrice", 0);
+        //                 $last_price = addCommas(results.quoted_price);
+        //             }
+        //             $("#bookingModal .price").html(
+        //                 $last_price + "<sup>&#8363;</sup>"
+        //             );
+        //             // Populate modal before showing
+        //             populateBookingModalDirectly();
+        //             if (window.populateBookingModal) {
+        //                 window.populateBookingModal();
+        //             }
+        //             setTimeout(function () {
+        //                 populateBookingModalDirectly();
+        //             }, 50);
+        //             $("#bookingModal").modal("show");
+        //         })
+        //         .fail(function (jqXHR, textStatus) {
+        //             $("#errorContentModal").html(
+        //                 "Đã có lỗi xảy ra trong quá trình báo giá, Quý Khách vui lòng liên hệ hotline <b>0876806216</b> để được báo giá. Chúng tôi thành thật xin lỗi Quý Khách vì sự bất tiện này."
+        //             );
+        //             $("#errorModal").modal("show");
+        //             console.warn("Request failed: " + textStatus);
+        //         })
+        //         .always(function () {
+        //             $("#startPoint_tf").removeClass("is-invalid");
+        //             $("#startPoint_tf").tooltip("dispose");
+        //             $bookNow_btn.prop("disabled", !1);
+        //             $bookNow_btn.html(
+        //                 'Kiểm Tra Giá <i class="fas fa-arrow-circle-right"></i>'
+        //             );
+        //         });
+        // } else {
+        // Ẩn phần giá tiền
+        $(".success-promo-div").hide();
+        $("#bookingModal .old-price").hide();
+        $("#bookingModal .price-section").hide();
+        $("#confirm_start_place").val($start_place);
+        $("#confirm_end_place").val($end_place);
+        $("#confirm_numseats").val($("#numseats_sf").val());
+        $("#confirm_pickuptime").val($pickuptime);
+        $("#confirm_waittime").val($waittime);
+        $("#confirm_roundtrip").prop("checked", $roundtrip);
+        $("#confirm_longtrip").prop("checked", $longtrip);
+        $("#confirm_vat").prop("checked", $vat);
+        $("#confirm_phone").val($("#customer_phone_tf").val());
+        $("#confirm_name").val($("#customer_name_tf").val());
+        $("#confirm_ref").val($ref);
+        $("#confirm_promocode").val($("#promocode_tf").val());
+        $("#confirm_stop_points").val(JSON.stringify(stopPoints));
+        // Populate modal before showing
+        $("#bookingModal").modal("show");
+
+        // }
     });
     $("#confirm_btn").click(function (e) {
         e.preventDefault();
@@ -24207,9 +24387,7 @@ $(document).ready(function () {
             $("#customer_phone_tf").tooltip("show");
             return;
         }
-        var $start_place = autocompletesBaseWraps[0],
-            $end_place = autocompletesBaseWraps[1],
-            $bookNow_btn = $("#confirm_btn");
+        var $bookNow_btn = $("#confirm_btn");
         $bookNow_btn.prop("disabled", !0);
         $bookNow_btn.html(
             '<i class="fas fa-spinner fa-spin"></i>&nbsp;Vui lòng đợi...'
@@ -24282,7 +24460,9 @@ $(document).ready(function () {
                 $("#waittime_nf").val("");
                 $("#roundtrip_cf").prop("checked", !1);
                 $("#vat_cf").prop("checked", !1);
-                $("#bookingModal .price").html(0 + "<sup>&#8363;</sup>");
+                // Ẩn phần giá tiền
+                // $("#bookingModal .price").html(0 + "<sup>&#8363;</sup>");
+                $("#bookingModal .price-section").hide();
                 $("#successModal").modal("show");
                 sessionStorage.setItem("lastSearch", "");
             })

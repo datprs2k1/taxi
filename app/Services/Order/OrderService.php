@@ -20,12 +20,14 @@ class OrderService extends BaseService
             $orders = $this->mainRepository->query();
 
             request()->whenHas('search', function ($value) use ($orders) {
-                $orders->where('name', 'like', '%' . $value . '%')
-                    ->orWhere('phone', 'like', '%' . $value . '%')
-                    ->orWhere('start_place', 'like', '%' . $value . '%')
-                    ->orWhere('end_place', 'like', '%' . $value . '%')
-                    ->orWhere('pickup_time', 'like', '%' . $value . '%')
-                    ->orWhere('status', 'like', '%' . $value . '%');
+                $orders->where(function($query) use ($value) {
+                    $query->where('name', 'like', '%' . $value . '%')
+                        ->orWhere('phone', 'like', '%' . $value . '%')
+                        ->orWhere('start_place', 'like', '%' . $value . '%')
+                        ->orWhere('end_place', 'like', '%' . $value . '%')
+                        ->orWhere('pickup_time', 'like', '%' . $value . '%')
+                        ->orWhere('code', 'like', '%' . $value . '%');
+                });
             });
 
             request()->whenHas('status', function ($value) use ($orders) {
@@ -42,7 +44,8 @@ class OrderService extends BaseService
                 $orders->whereDate('created_at', '<=', $value);
             });
 
-            $orders = $orders->orderBy('status', 'asc')->paginate(10);
+            // Order by status first, then by created_at
+            $orders = $orders->orderBy('status', 'asc')->orderBy('created_at', 'desc')->paginate(10);
 
             return $orders;
         });

@@ -25,6 +25,18 @@ class ConfigUpdateRequest extends ApiBaseRequest
             'facebook' => 'nullable|string|max:255',
             'zalo' => 'nullable|string|max:255',
             'messenger' => 'nullable|string|max:255',
+            'email_order_enabled' => 'nullable|boolean',
+            'telegram_order_enabled' => 'nullable|boolean',
+            'email_order_recipient' => 'nullable|email|max:255',
+            'gmail_smtp_host' => 'nullable|string|max:255',
+            'gmail_smtp_port' => 'nullable|integer|min:1|max:65535',
+            'gmail_smtp_username' => 'nullable|email|max:255',
+            'gmail_smtp_password' => 'nullable|string|max:255',
+            'gmail_smtp_encryption' => 'nullable|in:tls,ssl',
+            'telegram_bot_token' => 'nullable|string|max:255',
+            'telegram_chat_id' => 'nullable|string|max:255',
+            'google_distance_matrix_api_key' => 'nullable|string|max:255',
+            'google_distance_matrix_enabled' => 'nullable|boolean',
         ];
     }
 
@@ -41,6 +53,18 @@ class ConfigUpdateRequest extends ApiBaseRequest
             'facebook' => 'Facebook',
             'zalo' => 'Zalo',
             'messenger' => 'Messenger',
+            'email_order_enabled' => 'Bật gửi email',
+            'telegram_order_enabled' => 'Bật gửi Telegram',
+            'email_order_recipient' => 'Email nhận thông báo',
+            'gmail_smtp_host' => 'Gmail SMTP Host',
+            'gmail_smtp_port' => 'Gmail SMTP Port',
+            'gmail_smtp_username' => 'Gmail SMTP Username',
+            'gmail_smtp_password' => 'Gmail SMTP Password',
+            'gmail_smtp_encryption' => 'Gmail SMTP Encryption',
+            'telegram_bot_token' => 'Telegram Bot Token',
+            'telegram_chat_id' => 'Telegram Chat ID',
+            'google_distance_matrix_api_key' => 'Google Distance Matrix API Key',
+            'google_distance_matrix_enabled' => 'Bật tính giá Google Distance Matrix',
         ];
     }
 

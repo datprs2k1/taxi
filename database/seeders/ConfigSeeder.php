@@ -54,6 +54,54 @@ class ConfigSeeder extends Seeder
                 'key' => 'messenger',
                 'value' => 'https://m.me/example',
             ],
+            [
+                'key' => 'email_order_enabled',
+                'value' => '0',
+            ],
+            [
+                'key' => 'telegram_order_enabled',
+                'value' => '1',
+            ],
+            [
+                'key' => 'email_order_recipient',
+                'value' => '',
+            ],
+            [
+                'key' => 'gmail_smtp_host',
+                'value' => 'smtp.gmail.com',
+            ],
+            [
+                'key' => 'gmail_smtp_port',
+                'value' => '587',
+            ],
+            [
+                'key' => 'gmail_smtp_username',
+                'value' => '',
+            ],
+            [
+                'key' => 'gmail_smtp_password',
+                'value' => '',
+            ],
+            [
+                'key' => 'gmail_smtp_encryption',
+                'value' => 'tls',
+            ],
+            [
+                'key' => 'telegram_bot_token',
+                'value' => '',
+            ],
+            [
+                'key' => 'telegram_chat_id',
+                'value' => '',
+            ],
+            [
+                'key' => 'google_distance_matrix_api_key',
+                'value' => '',
+            ],
+            [
+                'key' => 'google_distance_matrix_enabled',
+                'value' => '0',
+            ],
         ];
 
         Config::insert($data);

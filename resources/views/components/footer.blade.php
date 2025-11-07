@@ -1,4 +1,4 @@
-<section class="kc-elm kc-css-422110 kc_row">
+<footer class="kc-elm kc-css-422110 kc_row">
     <div class="kc-row-container  kc-container">
         <div class="kc-wrap-columns">
             <div class="kc-elm kc-css-851729 kc_column kc_col-sm-12">
@@ -17,15 +17,14 @@
             </div>
         </div>
     </div>
-</section>
+</footer>
 <section class="kc-elm kc-css-797100 kc_row">
     <div class="kc-row-container  kc-container">
         <div class="kc-wrap-columns">
             <div class="kc-elm kc-css-600706 kc_column kc_col-sm-12">
                 <div class="kc-col-container">
-                    <div class="kc-elm kc-css-304469 kc_text_block">
-                        <h3 style="text-align: center;"><span style="font-family: 'Bebeboo-SemiBold';">CHAT
-                                ONLINE VỚI CHÚNG TÔI</span></h3>
+                    <div class="kc-elm kc-css-304469 kc_text_block footer-block">
+                        <h3 class="footer-title"><span class="footer-title-strong">CHAT ONLINE VỚI CHÚNG TÔI</span></h3>
                     </div>
                     <div class="kc-elm kc-css-477419 kc_row kc_row_inner">
                         <div class="kc-elm kc-css-962165 kc_col-sm-6 kc_column_inner kc_col-sm-6">
@@ -84,7 +83,7 @@
         </div>
     </div>
 </section>
-<section id="dc_footer" class="kc-elm kc-css-775579 kc_row">
+<footer id="dc_footer" class="kc-elm kc-css-775579 kc_row">
     <div class="kc-row-container  kc-container">
         <div class="kc-wrap-columns">
             <div id="dc_footer"
@@ -107,11 +106,16 @@
                         <div class="kc-elm kc-css-947882 kc_col-sm-8 kc_column_inner kc_col-sm-8">
                             <div class="kc_wrapper kc-col-inner-container">
                                 <div class="kc-elm kc-css-831110 kc_text_block">
-                                    <p><a href="#">Trang chủ</a> <a href="#">Bảng giá</a> <a
-                                            href="#">Loại xe</a> <a href="#">Chính sách bảo mật</a>
-                                        <a href="#">Blog</a> <a href="#">Liên hệ</a>
+                                    <p class="footer-links">
+                                        <a href="{{ route('home.index') }}">Trang chủ</a> 
+                                        <a href="{{ route('posts.index') }}">Bài viết</a> 
+                                        <a href="{{ route('promotions.index') }}">Khuyến mại</a> 
+                                        <a href="{{ route('news.index') }}">Tin tức</a>
+                                        <a href="{{ route('policy.privacy') }}">Chính sách bảo mật</a>
+                                        <a href="{{ route('about') }}">Về chúng tôi</a>
+                                        <a href="{{ route('contact') }}">Liên hệ</a>
                                     </p>
-                                    <p>{{ $config->where('key', 'name')->first()->value }}
+                                    <p class="footer-brand">{{ $config->where('key', 'name')->first()->value }}
                                     </p>
                                 </div>
                             </div>
@@ -121,21 +125,21 @@
             </div>
         </div>
     </div>
-</section>
+</footer>
 <section class="kc-elm kc-css-352817 kc_row">
     <div class="kc-row-container  kc-container">
         <div class="kc-wrap-columns">
             <div class="kc-elm kc-css-342142 kc_column kc_col-sm-12">
                 <div class="kc-col-container">
                     <div class="kc-elm kc-css-378541 kc_text_block">
-                        <p>{{ $config->where('key', 'name')->first()->value }}</p>
+                        <p class="footer-brand">{{ $config->where('key', 'name')->first()->value }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<div class="wpfm-floating-wh-wrapper ">
+<div class="wpfm-floating-wh-wrapper">
     <div class="wpfm-menu-wrapper wpfm-57340 wpfm-template-11">
         <nav id="wpfm-floating-menu-nav" class="wpfm-menu-nav wpfm wpfm-position-bottom-right">
             <ul>
@@ -549,3 +553,12 @@
         }
     </style>
 </div>
+
+<style>
+    .footer-block { text-align: center; }
+    .footer-title { margin: 0; }
+    .footer-title-strong { font-family: 'Bebeboo-SemiBold'; }
+    .footer-links a { margin-right: 10px; }
+    .footer-links a:last-child { margin-right: 0; }
+    .footer-brand { text-align: center; }
+</style>

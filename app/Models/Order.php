@@ -20,7 +20,8 @@ class Order extends Model
         'waittime',
         'price',
         'distance',
-        'code'
+        'code',
+        'status'
     ];
 
     public $casts = [

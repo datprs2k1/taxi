@@ -25,8 +25,13 @@ class ConfigController extends Controller
 
     public function update(ConfigUpdateRequest $request)
     {
-        $this->configService->update($request);
-
-        return redirect()->route('admin.config.index')->with('success', 'Cập nhật thành công');
+        try {
+            $this->configService->update($request);
+            return redirect()->route('admin.config.index')->with('success', 'Cập nhật cấu hình thành công!');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.config.index')
+                ->with('error', 'Có lỗi xảy ra khi cập nhật: ' . $e->getMessage())
+                ->withInput();
+        }
     }
 }

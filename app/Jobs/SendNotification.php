@@ -2,6 +2,8 @@
 
 namespace App\Jobs;
 
+use App\Models\Config;
+use App\Services\Email\EmailService;
 use App\Services\Telegram\TelegramService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
@@ -26,11 +28,34 @@ class SendNotification implements ShouldQueue
      */
     public function handle(): void
     {
-        $telegramService = new TelegramService();
-        $telegramService->sendMessage(
-            $this->formatOrderMessage(),
-            $this->getKeyboard()
-        );
+        // Check if email notification is enabled
+        $emailEnabled = Config::where('key', 'email_order_enabled')->first()?->value == '1';
+        
+        // Check if Telegram notification is enabled
+        $telegramEnabled = Config::where('key', 'telegram_order_enabled')->first()?->value == '1';
+
+        // Send email if enabled
+        if ($emailEnabled) {
+            try {
+                $emailService = new EmailService();
+                $emailService->sendOrderNotification($this->order);
+            } catch (\Exception $e) {
+                \Log::error('Failed to send email notification: ' . $e->getMessage());
+            }
+        }
+
+        // Send Telegram if enabled
+        if ($telegramEnabled) {
+            try {
+                $telegramService = new TelegramService();
+                $telegramService->sendMessage(
+                    $this->formatOrderMessage(),
+                    $this->getKeyboard()
+                );
+            } catch (\Exception $e) {
+                \Log::error('Failed to send Telegram notification: ' . $e->getMessage());
+            }
+        }
     }
 
     /**

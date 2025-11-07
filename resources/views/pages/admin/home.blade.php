@@ -4,11 +4,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">Dashboard</h3>
+                    <h3 class="mb-0">
+                        <i class="bi bi-speedometer2 me-2"></i>Dashboard
+                    </h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.home.index') }}">Trang chủ</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div>
@@ -19,77 +21,88 @@
     <div class="app-content-body">
         <div class="container-fluid">
             <!-- Summary Cards -->
-            <div class="row">
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-info">
+            <div class="row g-3 mb-4">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="small-box bg-info shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
-                            <h3>150</h3>
-                            <p>New Orders</p>
+                            <h3>{{ $pendingCount }}</h3>
+                            <p class="mb-0">Đơn hàng mới</p>
                         </div>
                         <div class="icon">
                             <i class="bi bi-cart-plus"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="bi bi-arrow-right-circle"></i>
+                        <a href="{{ route('admin.order.index') }}" class="small-box-footer">
+                            Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-success">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="small-box bg-success shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-                            <p>Completion Rate</p>
+                            <h3>
+                                {{ $totalOrders > 0 ? round(($acceptedCount / $totalOrders) * 100) : 0 }}
+                                <sup style="font-size: 20px">%</sup>
+                            </h3>
+                            <p class="mb-0">Tỷ lệ chấp nhận</p>
                         </div>
                         <div class="icon">
-                            <i class="bi bi-graph-up"></i>
+                            <i class="bi bi-graph-up-arrow"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="bi bi-arrow-right-circle"></i>
+                        <a href="{{ route('admin.order.index') }}" class="small-box-footer">
+                            Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-warning">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="small-box bg-warning shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
-                            <h3>44</h3>
-                            <p>Active Drivers</p>
+                            <h3>{{ $totalOrders }}</h3>
+                            <p class="mb-0">Tổng đơn hàng</p>
                         </div>
                         <div class="icon">
-                            <i class="bi bi-person-badge"></i>
+                            <i class="bi bi-clipboard-data"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="bi bi-arrow-right-circle"></i>
+                        <a href="{{ route('admin.order.index') }}" class="small-box-footer">
+                            Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-6">
-                    <div class="small-box bg-danger">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="small-box bg-danger shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
-                            <h3>65</h3>
-                            <p>Total Routes</p>
+                            <h3>{{ $rejectedCount }}</h3>
+                            <p class="mb-0">Đơn hàng từ chối</p>
                         </div>
                         <div class="icon">
-                            <i class="bi bi-geo-alt"></i>
+                            <i class="bi bi-x-circle"></i>
                         </div>
-                        <a href="#" class="small-box-footer">
-                            More info <i class="bi bi-arrow-right-circle"></i>
+                        <a href="{{ route('admin.order.index') }}" class="small-box-footer">
+                            Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
             <!-- Charts -->
-            <div class="row">
+            <div class="row g-3 mb-4">
                 <!-- Revenue Chart -->
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="bi bi-bar-chart-fill me-1"></i>
-                                Daily Revenue (Last 7 Days)
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="bi bi-bar-chart-fill me-2"></i>
+                                Doanh thu 7 ngày qua
                             </h3>
                         </div>
                         <div class="card-body">
@@ -100,11 +113,11 @@
 
                 <!-- Orders Chart -->
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="bi bi-graph-up me-1"></i>
-                                Orders by Status
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="bi bi-pie-chart-fill me-2"></i>
+                                Đơn hàng theo trạng thái
                             </h3>
                         </div>
                         <div class="card-body">
@@ -114,14 +127,14 @@
                 </div>
             </div>
 
-            <div class="row mt-4">
+            <div class="row g-3">
                 <!-- Popular Locations Chart -->
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="bi bi-geo-alt-fill me-1"></i>
-                                Popular Locations
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h3 class="card-title mb-0">
+                                <i class="bi bi-geo-alt-fill me-2"></i>
+                                Địa điểm phổ biến
                             </h3>
                         </div>
                         <div class="card-body">
@@ -132,11 +145,11 @@
 
                 <!-- Seat Distribution Chart -->
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="bi bi-people-fill me-1"></i>
-                                Seat Distribution
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-warning text-dark">
+                            <h3 class="card-title mb-0">
+                                <i class="bi bi-people-fill me-2"></i>
+                                Phân bổ số ghế
                             </h3>
                         </div>
                         <div class="card-body">
@@ -149,36 +162,28 @@
     </div>
 
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const revenueLabels = @json($revenueLabels);
+            const revenueData = @json($revenueLast7Days);
+            const ordersByStatus = @json($ordersByStatus);
+            const locationLabels = @json($locationLabels);
+            const startCounts = @json($startCounts);
+            const endCounts = @json($endCounts);
+            const seatLabels = @json($seatLabels);
+            const seatCounts = @json($seatCounts);
             // Revenue Chart - Optimized for daily data
             const revenueCtx = document.getElementById('revenueChart').getContext('2d');
             new Chart(revenueCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    labels: revenueLabels,
                     datasets: [{
-                        label: 'Daily Revenue (Million VND)',
-                        data: [12.5, 15.8, 10.2, 18.4, 22.6, 25.1, 19.7],
-                        backgroundColor: [
-                            'rgba(60, 141, 188, 0.7)',
-                            'rgba(60, 141, 188, 0.7)',
-                            'rgba(60, 141, 188, 0.7)',
-                            'rgba(60, 141, 188, 0.7)',
-                            'rgba(60, 141, 188, 0.7)',
-                            'rgba(255, 193, 7, 0.7)',
-                            'rgba(255, 193, 7, 0.7)'
-                        ],
-                        borderColor: [
-                            'rgba(60, 141, 188, 1)',
-                            'rgba(60, 141, 188, 1)',
-                            'rgba(60, 141, 188, 1)',
-                            'rgba(60, 141, 188, 1)',
-                            'rgba(60, 141, 188, 1)',
-                            'rgba(255, 193, 7, 1)',
-                            'rgba(255, 193, 7, 1)'
-                        ],
+                        label: 'Doanh thu (VNĐ)',
+                        data: revenueData,
+                        backgroundColor: 'rgba(60, 141, 188, 0.7)',
+                        borderColor: 'rgba(60, 141, 188, 1)',
                         borderWidth: 1
                     }]
                 },
@@ -188,10 +193,7 @@
                     scales: {
                         y: {
                             beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Million VND'
-                            }
+                            ticks: { precision: 0 }
                         }
                     }
                 }
@@ -204,7 +206,7 @@
                 data: {
                     labels: ['Chưa xử lý', 'Đã nhận', 'Đã từ chối'],
                     datasets: [{
-                        data: [42, 86, 27],
+                        data: ordersByStatus,
                         backgroundColor: [
                             'rgba(255, 193, 7, 0.8)', // Warning - Chưa xử lý
                             'rgba(40, 167, 69, 0.8)', // Success - Đã nhận
@@ -245,14 +247,14 @@
             new Chart(locationsCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng', 'Nha Trang', 'Huế'],
+                    labels: locationLabels,
                     datasets: [{
-                        label: 'Start Locations',
-                        data: [35, 30, 15, 10, 10],
+                        label: 'Điểm đi',
+                        data: startCounts,
                         backgroundColor: 'rgba(60, 141, 188, 0.7)'
                     }, {
-                        label: 'End Locations',
-                        data: [25, 40, 20, 8, 7],
+                        label: 'Điểm đến',
+                        data: endCounts,
                         backgroundColor: 'rgba(40, 167, 69, 0.7)'
                     }]
                 },
@@ -275,9 +277,9 @@
             new Chart(seatCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['4 Seats', '7 Seats', '16 Seats', '29 Seats', '45 Seats'],
+                    labels: seatLabels,
                     datasets: [{
-                        data: [45, 25, 20, 7, 3],
+                        data: seatCounts,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.7)',
                             'rgba(54, 162, 235, 0.7)',

@@ -1,4 +1,61 @@
 @extends('layout.homelayout')
+@section('title'){{ $config->where('key', 'title')->first()->value }}@endsection
+<style>
+    /* Force single column layout on mobile */
+    @media screen and (max-width: 767px) {
+        /* Override display: none from header.blade.php */
+        body.kc-css-system .kc-css-121359 {
+            display: block !important;
+        }
+
+        body.kc-css-system .kc-css-121359 .kc-wrap-columns,
+        .kc-css-121359 .kc-wrap-columns {
+            flex-direction: column !important;
+            flex-wrap: nowrap !important;
+            display: flex !important;
+        }
+
+        body.kc-css-system .kc-css-121359 .kc-css-830723,
+        body.kc-css-system .kc-css-121359 .kc-css-606785,
+        .kc-css-121359 .kc-css-830723,
+        .kc-css-121359 .kc-css-606785 {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+            float: none !important;
+            clear: both !important;
+        }
+
+        body.kc-css-system .kc-css-121359 .kc-css-830723.kc_column,
+        body.kc-css-system .kc-css-121359 .kc-css-606785.kc_column,
+        .kc-css-121359 .kc-css-830723.kc_column,
+        .kc-css-121359 .kc-css-606785.kc_column {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+            float: none !important;
+            clear: both !important;
+        }
+
+        body.kc-css-system .kc-css-121359 .kc-css-606785,
+        .kc-css-121359 .kc-css-606785 {
+            margin-top: 20px;
+        }
+    }
+</style>
+@section('seo')
+    @php
+        $siteTitle = $config->where('key', 'title')->first()->value;
+        $pageDescription = $config->where('key', 'description')->first()->value;
+    @endphp
+    <x-seo-meta
+        :config="$config"
+        :title="$siteTitle"
+        :description="$pageDescription"
+        :url="url('/')"
+        type="website"
+    />
+@endsection
 @section('content')
     <x-booking :orders="$orders" />
     <section class="kc-elm kc-css-121359 kc_row">
@@ -13,8 +70,7 @@
                             <div class="divider_inner divider_line1"></div>
                         </div>
                         <div class="kc-elm kc-css-724720 kc_text_block home_hinh_thuc_item">
-                            <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/1.png') }}" alt="Số 1"
-                                    width="52" height="61" /></p>
+                            <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/1.png') }}" alt="Gọi điện trực tiếp đặt xe taxi Nội Bài 24/7" width="52" height="61" loading="lazy" decoding="async" /></p>
                             <h3><span style="color: #EC2029; font-size: 20px;">Gọi điện trực tiếp (24/7)<br /> </span>
                             </h3>
                             <p><span style="color: #ff9000;">Tổng đài</span> <span style="color: #EC2029;"><strong><span
@@ -27,8 +83,7 @@
                             </p>
                         </div>
                         <div class="kc-elm kc-css-208875 kc_text_block home_hinh_thuc_item">
-                            <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/2.png') }}" alt="Số 2"
-                                    width="52" height="61" /></p>
+                            <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/2.png') }}" alt="Đăng ký đặt xe taxi trên website" width="52" height="61" loading="lazy" decoding="async" /></p>
                             <h3><span style="color: #EC2029; font-size: 20px;">Đăng ký trên website</span></h3>
                             <p><span style="font-family: 'Bebeboo';">Truy cập <a href="{{ url('/') }}">
                                         {{ $config->where('key', 'title')->first()->value }} </a> và nhập số điện thoại
@@ -36,36 +91,35 @@
                                     phút.</span></p>
                         </div>
                         <div class="kc-elm kc-css-528428 kc_text_block home_hinh_thuc_item">
-                            <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/3.png') }}" alt=""
-                                    width="52" height="61" /></p>
+                            <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/3.png') }}" alt="Chat online đặt xe taxi qua Facebook, Zalo, Messenger" width="52" height="61" loading="lazy" decoding="async" /></p>
                             <h3><span style="color: #EC2029; font-size: 20px;">Chat Online – </span></h3>
                             <p>
-                                <a href="{{ $config->where('key', 'facebook')->first()->value }}"><img
+                                <a href="{{ $config->where('key', 'facebook')->first()->value }}" aria-label="Facebook"><img
                                         class="alignnone size-full wp-image-1716"
-                                        src="{{ asset('uploads/2018/08/icon-f.png') }}" alt="" width="40"
-                                        height="40" /></a>
-                                <a href="{{ $config->where('key', 'messenger')->first()->value }}"><img
+                                        src="{{ asset('uploads/2018/08/icon-f.png') }}" alt="Facebook" width="40"
+                                        height="40" loading="lazy" decoding="async" /></a>
+                                <a href="{{ $config->where('key', 'messenger')->first()->value }}" aria-label="Messenger"><img
                                         class="alignnone wp-image-1718 size-full"
-                                        src="{{ asset('uploads/2018/08/icon-mess-face.png') }}" alt=""
-                                        width="40" height="40" /></a>
-                                <a href="{{ $config->where('key', 'zalo')->first()->value }}"><img
+                                        src="{{ asset('uploads/2018/08/icon-mess-face.png') }}" alt="Messenger"
+                                        width="40" height="40" loading="lazy" decoding="async" /></a>
+                                <a href="{{ $config->where('key', 'zalo')->first()->value }}" aria-label="Zalo"><img
                                         class="alignnone size-medium" src="{{ asset('uploads/2018/09/icon-line.png') }}"
-                                        alt="" width="40" height="40" /></a>
-                                <a href="viber://chat?number=84847904444"><img class="alignnone"
-                                        src="{{ asset('uploads/2018/08/icon-viber.png') }}" alt="" width="40"
-                                        height="40" /></a>
-                                <a href="{{ $config->where('key', 'zalo')->first()->value }}"><img
+                                        alt="Zalo" width="40" height="40" loading="lazy" decoding="async" /></a>
+                                <a href="viber://chat?number=84847904444" aria-label="Viber"><img class="alignnone"
+                                        src="{{ asset('uploads/2018/08/icon-viber.png') }}" alt="Viber" width="40"
+                                        height="40" loading="lazy" decoding="async" /></a>
+                                <a href="{{ $config->where('key', 'zalo')->first()->value }}" aria-label="Zalo"><img
                                         class="alignnone wp-image-1979 size-full"
-                                        src="{{ asset('uploads/2018/09/icon-zalo.png') }}" alt="" width="40"
-                                        height="40" /></a>
-                                <a href="https://api.whatsapp.com/send?phone=0847904444"><img
+                                        src="{{ asset('uploads/2018/09/icon-zalo.png') }}" alt="Zalo" width="40"
+                                        height="40" loading="lazy" decoding="async" /></a>
+                                <a href="https://api.whatsapp.com/send?phone=0847904444" aria-label="WhatsApp"><img
                                         class="alignnone wp-image-1984 size-full"
-                                        src="{{ asset('uploads/2018/09/icon-whatapp.png') }}" alt="" width="40"
-                                        height="40" /></a>
-                                <a href="{{ $config->where('key', 'zalo')->first()->value }}"><img
+                                        src="{{ asset('uploads/2018/09/icon-whatapp.png') }}" alt="WhatsApp" width="40"
+                                        height="40" loading="lazy" decoding="async" /></a>
+                                <a href="{{ $config->where('key', 'zalo')->first()->value }}" aria-label="Telegram"><img
                                         class="alignnone size-medium"
-                                        src="{{ asset('uploads/2018/09/icon-telegram.png') }}" alt=""
-                                        width="40" height="40" /></a>
+                                        src="{{ asset('uploads/2018/09/icon-telegram.png') }}" alt="Telegram"
+                                        width="40" height="40" loading="lazy" decoding="async" /></a>
                             </p>
                         </div>
 
@@ -81,14 +135,14 @@
                         </div>
                         <div class="kc-elm kc-css-559676 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/tien_mat.png') }}"
-                                    alt="" width="52" height="61" /></p>
+                                    alt="Thanh toán bằng tiền mặt cho dịch vụ taxi" width="52" height="61" loading="lazy" decoding="async" /></p>
                             <h3><span style="color: #EC2029; font-size: 20px;">Tiền mặt</span></h3>
                             <p>Sau khi kết thúc hành trình, Quý khách vui lòng thanh toán trực tiếp cho lái xe chi phí
                                 của chuyến đi bằng tiền mặt.</p>
                         </div>
                         <div class="kc-elm kc-css-261565 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/chuyen_khoan.png') }}"
-                                    alt="" width="52" height="61" /></p>
+                                    alt="Thanh toán bằng chuyển khoản ngân hàng" width="52" height="61" loading="lazy" decoding="async" /></p>
                             <h3><span style="color: #EC2029; font-size: 20px;">Chuyển khoản</span></h3>
                             <p>Quý khách có thể thanh toán bằng cách chuyển khoản vào một trong các tài khoản do công ty
                                 chỉ định:
@@ -96,14 +150,14 @@
                         </div>
                         <div class="kc-elm kc-css-844510 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/van_phong.png') }}"
-                                    alt="" width="52" height="61" /></p>
+                                    alt="Thanh toán trực tiếp tại văn phòng" width="52" height="61" loading="lazy" decoding="async" /></p>
                             <h3><span style="color: #EC2029; font-size: 20px;">Trực tiếp tại văn phòng</span></h3>
                             <p>Quý khách vui lòng đến văn phòng công ty tại địa chỉ tại
                                 {{ $config->where('key', 'address')->first()->value }}</p>
                         </div>
                         <div class="kc-elm kc-css-790555 kc_text_block home_hinh_thuc_item">
                             <p><img class="size-full alignleft" src="{{ asset('uploads/2018/03/tra_sau.png') }}"
-                                    alt="" width="52" height="61" /></p>
+                                    alt="Thanh toán trả sau cho doanh nghiệp" width="52" height="61" loading="lazy" decoding="async" /></p>
                             <h3><span style="color: #EC2029; font-size: 20px;">Trả sau</span></h3>
                             <p>Chỉ áp dụng cho doanh nghiệp có hợp đồng với chúng tôi.</p>
                         </div>
@@ -112,6 +166,33 @@
             </div>
         </div>
     </section>
+
+    <!-- Section Bài Viết -->
+    @include('components.post-styles')
+    <section class="posts-section">
+        <div class="posts-container">
+            <div class="posts-row">
+                <!-- Cột 1 - Bài Viết Thường -->
+                <div class="posts-left-column">
+                    @php
+                        $first5Posts = $allPosts->take(5);
+                        $remainingPosts = $allPosts->skip(5)->take(3); // Giới hạn 3 bài để cân bằng 2 cột
+                    @endphp
+
+                    <x-post-top5 :first5Posts="$first5Posts" />
+
+                    <!-- Các Bài Viết Còn Lại: 1 Cột -->
+                    <x-post-list-regular :posts="$remainingPosts" />
+                </div>
+
+                <!-- Cột 2 - Khuyến Mãi -->
+                <div class="posts-right-column">
+                    <x-promotion-box :promotionPosts="$promotionPosts" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="kc-elm kc-css-196933 kc_row">
         <div class="kc-row-container  kc-container">
             <div class="kc-wrap-columns">
@@ -209,4 +290,23 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Swiper for customer testimonials - 1 slide (containing 3 testimonials) per view
+        if (typeof Swiper !== 'undefined' && document.querySelector('.dc_home_danh_gia')) {
+            var danhGiaSwiper = new Swiper('.dc_home_danh_gia', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                navigation: {
+                    nextEl: '.danhgia_next',
+                    prevEl: '.danhgia_prev',
+                },
+                loop: false
+            });
+        }
+    });
+</script>
 @endsection

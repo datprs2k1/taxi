@@ -1,9 +1,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-    <meta name='viewport' content='width=device-width'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes'>
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>{{ $config->where('key', 'title')->first()->value }}</title>
+    <title>@hasSection('title')@yield('title')@else{{ $config->where('key', 'title')->first()->value }}@endif</title>
     <style id="rocket-critical-css">
         .wp-block-media-text .wp-block-media-text__media {
             grid-area: media-text-media;
@@ -203,7 +203,7 @@
             width: 100%
         }
 
-        @media screen and (min-width:999px) {
+        @media screen and (min-width:992px) {
 
             .kc-row-container .kc-wrap-columns,
             .kc_row_inner {
@@ -219,16 +219,51 @@
                 width: calc(100% + 30px)
             }
         }
+        
+        /* Override for mobile - must be after desktop styles */
+        @media screen and (max-width:767px) {
+            .kc-row-container .kc-wrap-columns,
+            .kc_row_inner {
+                flex-direction: column !important;
+                flex-wrap: nowrap !important;
+            }
+        }
 
         @media screen and (max-width:767px) {
 
             body.kc-css-system .kc_column,
             body.kc-css-system .kc_column_inner {
-                width: 100%
+                width: 100% !important;
+                max-width: 100% !important;
+                float: none !important;
+                clear: both !important;
+            }
+            
+            body.kc-css-system .kc_col-sm-6,
+            .kc_col-sm-6 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                float: none !important;
+                clear: both !important;
+            }
+            
+            body.kc-css-system .kc-css-830723.kc_column,
+            body.kc-css-system .kc-css-606785.kc_column {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                float: none !important;
+                clear: both !important;
             }
 
             div.kc_row {
                 display: block
+            }
+            
+            body.kc-css-system .kc-wrap-columns {
+                flex-direction: column !important;
+                display: flex !important;
             }
         }
 
@@ -710,7 +745,7 @@
             width: 100%
         }
 
-        @media screen and (min-width:999px) {
+        @media screen and (min-width:992px) {
 
             .kc-row-container .kc-wrap-columns,
             .kc_row_inner {
@@ -726,16 +761,51 @@
                 width: calc(100% + 30px)
             }
         }
+        
+        /* Override for mobile - must be after desktop styles */
+        @media screen and (max-width:767px) {
+            .kc-row-container .kc-wrap-columns,
+            .kc_row_inner {
+                flex-direction: column !important;
+                flex-wrap: nowrap !important;
+            }
+        }
 
         @media screen and (max-width:767px) {
 
             body.kc-css-system .kc_column,
             body.kc-css-system .kc_column_inner {
-                width: 100%
+                width: 100% !important;
+                max-width: 100% !important;
+                float: none !important;
+                clear: both !important;
+            }
+            
+            body.kc-css-system .kc_col-sm-6,
+            .kc_col-sm-6 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                float: none !important;
+                clear: both !important;
+            }
+            
+            body.kc-css-system .kc-css-830723.kc_column,
+            body.kc-css-system .kc-css-606785.kc_column {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                float: none !important;
+                clear: both !important;
             }
 
             div.kc_row {
                 display: block
+            }
+            
+            body.kc-css-system .kc-wrap-columns {
+                flex-direction: column !important;
+                display: flex !important;
             }
         }
 
@@ -1602,7 +1672,7 @@
             z-index: 999
         }
 
-        @media only screen and (min-width:1025px) {
+        @media only screen and (min-width:992px) {
             .dc_nav_top ul {
                 margin: 0;
                 padding: 0;
@@ -1664,7 +1734,7 @@
             }
         }
 
-        @media only screen and (max-width:1024px) {
+        @media only screen and (max-width:991px) {
             .kc_row:not(.kc_row_inner) {
                 padding-left: 15px;
                 padding-right: 15px
@@ -1857,17 +1927,124 @@
         as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="preload" href="{{ asset('cache/min/1/a63dc7665cb0edb3c77d6832737d98c9.css') }}" as="style"
         onload="this.onload=null;this.rel='stylesheet'" data-minify="1" />
-    <meta name="description" content="{{ $config->where('key', 'description')->first()->value }}" />
-    <meta property="og:locale" content="vi_VN" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ $config->where('key', 'title')->first()->value }}" />
-    <meta property="og:description" content="{{ $config->where('key', 'description')->first()->value }}" />
-    <meta property="og:site_name" content="{{ $config->where('key', 'title')->first()->value }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:description" content="{{ $config->where('key', 'description')->first()->value }}" />
-    <meta name="twitter:title" content="{{ $config->where('key', 'title')->first()->value }}" />
-    <meta name="twitter:image" content="{{ asset($config->where('key', 'logo')->first()->value) }}" />
-    <script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"{{ url('/') }}/#website","url":"{{ url('/') }}/","name":"{{ $config->where('key', 'title')->first()->value }}","potentialAction":{"@type":"SearchAction","target":"{{ url('/') }}/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"{{ url('/') }}/#primaryimage","url":"{{ asset($config->where('key', 'logo')->first()->value) }}","width":404,"height":90},{"@type":"WebPage","@id":"{{ url('/') }}/#webpage","url":"{{ url('/') }}/","inLanguage":"vi-VN","name":"{{ $config->where('key', 'title')->first()->value }}","isPartOf":{"@id":"{{ url('/') }}/#website"},"primaryImageOfPage":{"@id":"{{ url('/') }}/#primaryimage"},"datePublished":"2018-03-12T11:14:19+00:00","dateModified":"2025-01-12T11:26:14+00:00","description":"{{ $config->where('key', 'description')->first()->value }}"}]}</script>
+    @hasSection('seo')
+        @yield('seo')
+    @else
+        <meta name="description" content="{{ $config->where('key', 'description')->first()->value }}" />
+        <link rel="canonical" href="{{ url()->current() }}" />
+        <meta name="robots" content="index,follow" />
+        <meta property="og:locale" content="vi_VN" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ $config->where('key', 'title')->first()->value }}" />
+        <meta property="og:description" content="{{ $config->where('key', 'description')->first()->value }}" />
+        <meta property="og:url" content="{{ url()->current() }}" />
+        <meta property="og:site_name" content="{{ $config->where('key', 'title')->first()->value }}" />
+        <meta property="og:image" content="{{ asset($config->where('key', 'logo')->first()->value) }}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:description" content="{{ $config->where('key', 'description')->first()->value }}" />
+        <meta name="twitter:title" content="{{ $config->where('key', 'title')->first()->value }}" />
+        <meta name="twitter:image" content="{{ asset($config->where('key', 'logo')->first()->value) }}" />
+        <script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "{{ url('/') }}/#website",
+                    "url": "{{ url('/') }}/",
+                    "name": "{{ $config->where('key', 'title')->first()->value }}",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "{{ url('/') }}/?s={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                },
+                {
+                    "@type": "ImageObject",
+                    "@id": "{{ url('/') }}/#primaryimage",
+                    "url": "{{ asset($config->where('key', 'logo')->first()->value) }}",
+                    "width": 404,
+                    "height": 90
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": "{{ url('/') }}/#webpage",
+                    "url": "{{ url('/') }}/",
+                    "inLanguage": "vi-VN",
+                    "name": "{{ $config->where('key', 'title')->first()->value }}",
+                    "isPartOf": {"@id": "{{ url('/') }}/#website"},
+                    "primaryImageOfPage": {"@id": "{{ url('/') }}/#primaryimage"},
+                    "datePublished": "2018-03-12T11:14:19+00:00",
+                    "dateModified": "2025-01-12T11:26:14+00:00",
+                    "description": "{{ $config->where('key', 'description')->first()->value }}"
+                },
+                @php
+                    $orgName = $config->where('key', 'name')->first()->value ?? $config->where('key', 'title')->first()->value;
+                    $orgLogo = asset($config->where('key', 'logo')->first()->value);
+                    $orgPhone = $config->where('key', 'phone')->first()->value ?? '';
+                    $orgEmail = $config->where('key', 'email')->first()->value ?? '';
+                    $orgAddress = $config->where('key', 'address')->first()->value ?? '';
+                    $orgFacebook = $config->where('key', 'facebook')->first()->value ?? '';
+                    $orgZalo = $config->where('key', 'zalo')->first()->value ?? '';
+                    $orgMessenger = $config->where('key', 'messenger')->first()->value ?? '';
+                    $sameAs = array_filter([$orgFacebook, $orgZalo, $orgMessenger]);
+                @endphp
+                {
+                    "@type": "Organization",
+                    "@id": "{{ url('/') }}/#organization",
+                    "name": "{{ $orgName }}",
+                    "url": "{{ url('/') }}",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "{{ $orgLogo }}"
+                    },
+                    @if($orgPhone)
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "telephone": "{{ $orgPhone }}",
+                        "contactType": "customer service",
+                        "areaServed": "VN",
+                        "availableLanguage": "Vietnamese"
+                    },
+                    @endif
+                    @if(count($sameAs) > 0)
+                    "sameAs": [
+                        @foreach($sameAs as $index => $url)
+                        "{{ $url }}"@if(!$loop->last),@endif
+                        @endforeach
+                    ]
+                    @endif
+                },
+                {
+                    "@type": "LocalBusiness",
+                    "@id": "{{ url('/') }}/#localbusiness",
+                    "name": "{{ $orgName }}",
+                    "image": "{{ $orgLogo }}",
+                    @if($orgAddress)
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Hà Nội",
+                        "addressCountry": "VN",
+                        "streetAddress": "{{ $orgAddress }}"
+                    },
+                    @endif
+                    @if($orgPhone)
+                    "telephone": "{{ $orgPhone }}",
+                    @endif
+                    @if($orgEmail)
+                    "email": "{{ $orgEmail }}",
+                    @endif
+                    "priceRange": "$$",
+                    "areaServed": {
+                        "@type": "City",
+                        "name": "Hà Nội"
+                    },
+                    "serviceType": "Taxi Service"
+                }
+            ]
+        }
+        </script>
+    @endif
     <link rel='dns-prefetch' href='//ajax.googleapis.com' />
     <link rel='https://api.w.org/' href='{{ url('/') }}/wp-json/' />
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{ url('/') }}/xmlrpc.php?rsd" />
@@ -2063,7 +2240,7 @@
             left: 0
         }
 
-        @media only screen and (max-width:1024px) {
+        @media only screen and (max-width:991px) {
             #dc_menu_mobile .collapse.show {
                 left: 0 !important
             }
@@ -2200,6 +2377,16 @@
 
             body.kc-css-system .kc-css-606785 {
                 width: 49.72%
+            }
+        }
+        
+        /* Override for mobile - must be after desktop styles */
+        @media only screen and (max-width:767px) {
+            body.kc-css-system .kc-css-830723,
+            body.kc-css-system .kc-css-606785 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
             }
 
             body.kc-css-system .kc-css-962165 {
@@ -2361,8 +2548,14 @@
             text-align: right
         }
 
-        body.kc-css-system .kc-css-44176 {
+        /* Only apply red background to the nav container, not the entire NAV element */
+        body.kc-css-system .kc-css-44176 .dc_nav_top {
             background: #EC2029
+        }
+
+        /* Remove red background from NAV element itself */
+        body.kc-css-system .kc-css-44176 {
+            background: transparent !important;
         }
 
         body.kc-css-system .kc-css-989966 {
@@ -2678,7 +2871,7 @@
             text-align: center
         }
 
-        @media only screen and (max-width:1024px) {
+        @media only screen and (max-width:991px) {
             body.kc-css-system .kc-css-133714 {
                 display: none
             }
@@ -2756,7 +2949,7 @@
             }
         }
 
-        @media only screen and (max-width:999px) {
+        @media only screen and (max-width:991px) {
             body.kc-css-system .kc-css-660945 {
                 text-align: center;
                 width: 33.33%
@@ -2857,7 +3050,7 @@
             }
 
             body.kc-css-system .kc-css-121359 {
-                display: none !important
+                display: block !important
             }
 
             body.kc-css-system .kc-css-345558 {
@@ -2948,6 +3141,35 @@
         @media only screen and (max-width:479px) {
             body.kc-css-system .kc-css-606785 {
                 margin-top: 30px
+            }
+        }
+        
+        @media only screen and (max-width:767px) {
+            body.kc-css-system .kc-css-830723,
+            body.kc-css-system .kc-css-606785 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+            }
+            
+            body.kc-css-system .kc-css-830723.kc_col-sm-6,
+            body.kc-css-system .kc-css-606785.kc_col-sm-6 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+            }
+            
+            body.kc-css-system .kc-css-606785 {
+                margin-top: var(--space-lg);
+            }
+            
+            /* Force single column layout */
+            body.kc-css-system .kc-wrap-columns {
+                flex-direction: column !important;
+            }
+            
+            body.kc-css-system .kc-css-121359 .kc-wrap-columns {
+                flex-direction: column !important;
             }
         }
     </style><noscript>

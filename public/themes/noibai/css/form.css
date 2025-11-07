@@ -196,16 +196,38 @@
   padding-left: 10px;
   color: #333333;
 }
-.form_main form.info_form .dc_col2 input.tgian_don,
-.form_main form.info_form .dc_col2 input.tgian_cho {
-  border-radius: 5px;
-}
 .form_main form.info_form .dc_col2 input.tgian_don {
+  border-radius: 5px;
   background: #ffffff url("tgian_don.png") center right 15px no-repeat;
 }
-.form_main form.info_form .dc_col2 input.tgian_cho {
-  background: #ffffff url("tgian_cho.png") center right 15px no-repeat;
-  border-radius: 5px;
+.form_main form.info_form .dc_col2.tgian_don label {
+  width: 120px !important;
+  padding-left: 0 !important;
+  color: #333333;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 17.9px !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+.form_main form.info_form .flex.bg2:not(.dc_col2) {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.form_main form.info_form .flex.bg2:not(.dc_col2) label {
+  width: 140px;
+  text-align: center;
+  color: #333333;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 46px;
+}
+.form_main form.info_form .flex.bg2:not(.dc_col2) input {
+  flex: 1;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .form_main form.info_form .dc_diemdi label {
   background: url("diem_di.png") left 10px center no-repeat;
@@ -584,4 +606,56 @@
 #quickBookModal .modal-body ul div{
   display: flex;
   text-align: left;
+}
+
+/* Booking confirmation modal styles */
+.booking-info-summary {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+}
+
+/* Hide price section in booking modal */
+#bookingModal .price-section {
+  display: none !important;
+}
+
+.booking-info-summary .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.booking-info-summary .info-row:last-child {
+  border-bottom: none;
+}
+
+.booking-info-summary .info-row strong {
+  min-width: 140px;
+  color: #333;
+  font-weight: 600;
+}
+
+.booking-info-summary .info-row span {
+  flex: 1;
+  text-align: right;
+  color: #495057;
+}
+
+@media (max-width: 767px) {
+  .booking-info-summary .info-row {
+    flex-direction: column;
+  }
+  
+  .booking-info-summary .info-row strong {
+    min-width: auto;
+    margin-bottom: 5px;
+  }
+  
+  .booking-info-summary .info-row span {
+    text-align: left;
+  }
 }

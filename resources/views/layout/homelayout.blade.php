@@ -9,12 +9,48 @@
     <div id="fb-customer-chat" class="fb-customerchat"></div>
     <div class="kc_clfw"></div>
     <x-navbar :config="$config" />
-    @yield('content')
+    <main id="main-content">
+        @yield('content')
+    </main>
     <script
         src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyCBTROq6LuvF_IE1r46-T4AeTSV-0d7my8&language=vi-VI&region=VN&avoid=tolls|highways|ferries">
     </script>
-    <div id="fb-root"></div>
+
     <x-footer :config="$config" />
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('dc_menu_pc');
+            const menuItems = document.querySelectorAll('.dc_menu_top ul.menu li.menu-item-has-children');
+
+            // Toggle submenu on mobile
+            if (menuItems.length > 0) {
+                menuItems.forEach(function(item) {
+                    const link = item.querySelector('a');
+                    if (link) {
+                        link.addEventListener('click', function(e) {
+                            if (window.innerWidth <= 1024) {
+                                e.preventDefault();
+                                item.classList.toggle('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (mobileMenu && mobileMenuToggle && window.innerWidth <= 1024) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                        if (mobileMenu.classList.contains('show')) {
+                            mobileMenuToggle.click();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
     <script type='text/javascript'>
         /* <![CDATA[ */
         var wpcf7 = {
@@ -113,12 +149,10 @@
     </script>
     <script data-no-minify="1" async src="{{ asset('plugins/wp-rocket/assets/js/lazyload/11.0.6/lazyload.min.js') }}">
     </script>
-    <script src="{{ asset('cache/min/1/7ad9e9c01f077ff9e5d675874713646f.js') }}" data-minify="1" defer></script><noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Concert%20One%7CPlay%7CRoboto%3A100italic%2C100%2C300italic%2C300%2C400italic%2C400%2C500italic%2C500%2C700italic%2C700%2C900italic%2C900&display=swap" />
-    </noscript><noscript>
-        <link rel="stylesheet" href="{{ asset('cache/min/1/a63dc7665cb0edb3c77d6832737d98c9.css') }}" data-minify="1" />
-    </noscript>
+    <script src="{{ asset('cache/min/1/7ad9e9c01f077ff9e5d675874713646f.js') }}" data-minify="1" defer></script>
+    @hasSection('scripts')
+        @yield('scripts')
+    @endif
 </body>
 
 </html>
