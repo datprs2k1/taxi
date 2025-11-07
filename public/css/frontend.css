@@ -3339,7 +3339,7 @@ img[class*="align"] {
     .dc_home_doitac .swiper-slide {
         padding: var(--space-sm);
     }
-    
+
     /* On mobile, show 1 testimonial per slide */
     .dc_home_danh_gia .swiper-slide {
         width: 100% !important;

@@ -23,7 +23,7 @@
             <!-- Summary Cards -->
             <div class="row g-3 mb-4">
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="small-box bg-info shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                    <div class="small-box bg-info shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;"
                          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="small-box bg-success shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                    <div class="small-box bg-success shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;"
                          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="small-box bg-warning shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                    <div class="small-box bg-warning shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;"
                          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="small-box bg-danger shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;" 
+                    <div class="small-box bg-danger shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;"
                          onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
                         <div class="inner">
@@ -88,6 +88,60 @@
                             <i class="bi bi-x-circle"></i>
                         </div>
                         <a href="{{ route('admin.order.index') }}" class="small-box-footer">
+                            Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Statistics -->
+            <div class="row g-3 mb-4">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="small-box bg-primary shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;"
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
+                        <div class="inner">
+                            <h3>{{ $totalContacts }}</h3>
+                            <p class="mb-0">Tổng liên hệ</p>
+                        </div>
+                        <div class="icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <a href="{{ route('admin.contact.index') }}" class="small-box-footer">
+                            Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="small-box bg-warning shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;"
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
+                        <div class="inner">
+                            <h3>{{ $pendingContacts }}</h3>
+                            <p class="mb-0">Liên hệ chưa xử lý</p>
+                        </div>
+                        <div class="icon">
+                            <i class="bi bi-envelope-exclamation"></i>
+                        </div>
+                        <a href="{{ route('admin.contact.index', ['status' => 0]) }}" class="small-box-footer">
+                            Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="small-box bg-success shadow-sm" style="transition: transform 0.2s, box-shadow 0.2s;"
+                         onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.15)'"
+                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.1)'">
+                        <div class="inner">
+                            <h3>{{ $processedContacts }}</h3>
+                            <p class="mb-0">Liên hệ đã xử lý</p>
+                        </div>
+                        <div class="icon">
+                            <i class="bi bi-envelope-check"></i>
+                        </div>
+                        <a href="{{ route('admin.contact.index', ['status' => 1]) }}" class="small-box-footer">
                             Xem chi tiết <i class="bi bi-arrow-right-circle ms-1"></i>
                         </a>
                     </div>

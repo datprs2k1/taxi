@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,6 +29,11 @@ class HomeController extends Controller
 			$rejectedCount = 0;
 		}
 		$totalOrders = Order::count();
+
+		// Contact statistics
+		$totalContacts = Contact::count();
+		$pendingContacts = Contact::where('status', 0)->count();
+		$processedContacts = Contact::where('status', 1)->count();
 
 		// Revenue over last 7 days (sum of price by day)
 		$last7Days = collect(range(6, 0))->map(function ($daysAgo) {
@@ -77,6 +83,9 @@ class HomeController extends Controller
 			'pendingCount' => $pendingCount,
 			'acceptedCount' => $acceptedCount,
 			'rejectedCount' => $rejectedCount,
+			'totalContacts' => $totalContacts,
+			'pendingContacts' => $pendingContacts,
+			'processedContacts' => $processedContacts,
 			'revenueLast7Days' => $revenueLast7Days,
 			'revenueLabels' => $revenueLabels,
 			'ordersByStatus' => [$pendingCount, $acceptedCount, $rejectedCount],

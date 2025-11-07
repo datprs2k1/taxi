@@ -2,8 +2,10 @@
 
 namespace App\Services\Email;
 
+use App\Mail\ContactNotificationMail;
 use App\Mail\OrderNotificationMail;
 use App\Models\Config;
+use App\Models\Contact;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 
@@ -41,6 +43,42 @@ class EmailService
             Mail::to($recipient)->send(new OrderNotificationMail($order));
         } catch (\Exception $e) {
             \Log::error('Failed to send order notification email: ' . $e->getMessage());
+            throw $e;
+        }
+    }
+
+    /**
+     * Send contact notification email
+     *
+     * @param Contact $contact
+     * @return void
+     */
+    public function sendContactNotification(Contact $contact): void
+    {
+        // Get email recipient
+        $recipient = Config::where('key', 'email_contact_recipient')->first()?->value;
+        
+        if (empty($recipient)) {
+            \Log::warning('Email recipient not configured for contact notification');
+            return;
+        }
+
+        // Get SMTP configuration from database
+        $smtpConfig = $this->getSmtpConfig();
+        
+        if (!$this->isSmtpConfigured($smtpConfig)) {
+            \Log::warning('SMTP configuration is incomplete for contact notification');
+            return;
+        }
+
+        // Configure mail dynamically
+        $this->configureMail($smtpConfig);
+
+        try {
+            // Send email
+            Mail::to($recipient)->send(new ContactNotificationMail($contact));
+        } catch (\Exception $e) {
+            \Log::error('Failed to send contact notification email: ' . $e->getMessage());
             throw $e;
         }
     }

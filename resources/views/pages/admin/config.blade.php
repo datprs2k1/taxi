@@ -254,7 +254,7 @@
                                         <div class="row">
                                             <div class="col-md-12 mb-4">
                                                 <h5 class="mb-3">
-                                                    <i class="bi bi-bell-fill me-2"></i>Cài đặt thông báo
+                                                    <i class="bi bi-cart-fill me-2"></i>Thông báo đơn hàng
                                                 </h5>
                                                 
                                                 <div class="form-check form-switch mb-3">
@@ -276,22 +276,64 @@
                                                         <strong>Bật gửi Telegram thông báo đơn hàng</strong>
                                                     </label>
                                                 </div>
+
+                                                <div class="col-md-12 mb-3 ps-0">
+                                                    <label for="email_order_recipient" class="form-label">
+                                                        <i class="bi bi-envelope-at me-1"></i>Email nhận thông báo đơn hàng
+                                                    </label>
+                                                    <input type="email" class="form-control @error('email_order_recipient') is-invalid @enderror" 
+                                                        id="email_order_recipient" name="email_order_recipient"
+                                                        placeholder="admin@example.com"
+                                                        value="{{ old('email_order_recipient', $config->where('key', 'email_order_recipient')->first()?->value ?? '') }}">
+                                                    @error('email_order_recipient')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                    <small class="form-text text-muted">
+                                                        Email này sẽ nhận thông báo khi có đơn hàng mới
+                                                    </small>
+                                                </div>
                                             </div>
 
-                                            <div class="col-md-12 mb-3">
-                                                <label for="email_order_recipient" class="form-label">
-                                                    <i class="bi bi-envelope-at me-1"></i>Email nhận thông báo đơn hàng
-                                                </label>
-                                                <input type="email" class="form-control @error('email_order_recipient') is-invalid @enderror" 
-                                                    id="email_order_recipient" name="email_order_recipient"
-                                                    placeholder="admin@example.com"
-                                                    value="{{ old('email_order_recipient', $config->where('key', 'email_order_recipient')->first()?->value ?? '') }}">
-                                                @error('email_order_recipient')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                                <small class="form-text text-muted">
-                                                    Email này sẽ nhận thông báo khi có đơn hàng mới
-                                                </small>
+                                            <div class="col-md-12 mb-4">
+                                                <h5 class="mb-3">
+                                                    <i class="bi bi-envelope-fill me-2"></i>Thông báo liên hệ
+                                                </h5>
+                                                
+                                                <div class="form-check form-switch mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="email_contact_enabled" 
+                                                        name="email_contact_enabled" value="1"
+                                                        {{ old('email_contact_enabled', $config->where('key', 'email_contact_enabled')->first()?->value ?? '0') == '1' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="email_contact_enabled">
+                                                        <i class="bi bi-envelope-check me-1"></i>
+                                                        <strong>Bật gửi email thông báo liên hệ</strong>
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check form-switch mb-3">
+                                                    <input class="form-check-input" type="checkbox" id="telegram_contact_enabled" 
+                                                        name="telegram_contact_enabled" value="1"
+                                                        {{ old('telegram_contact_enabled', $config->where('key', 'telegram_contact_enabled')->first()?->value ?? '0') == '1' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="telegram_contact_enabled">
+                                                        <i class="bi bi-send me-1"></i>
+                                                        <strong>Bật gửi Telegram thông báo liên hệ</strong>
+                                                    </label>
+                                                </div>
+
+                                                <div class="col-md-12 mb-3 ps-0">
+                                                    <label for="email_contact_recipient" class="form-label">
+                                                        <i class="bi bi-envelope-at me-1"></i>Email nhận thông báo liên hệ
+                                                    </label>
+                                                    <input type="email" class="form-control @error('email_contact_recipient') is-invalid @enderror" 
+                                                        id="email_contact_recipient" name="email_contact_recipient"
+                                                        placeholder="admin@example.com"
+                                                        value="{{ old('email_contact_recipient', $config->where('key', 'email_contact_recipient')->first()?->value ?? '') }}">
+                                                    @error('email_contact_recipient')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
+                                                    <small class="form-text text-muted">
+                                                        Email này sẽ nhận thông báo khi có liên hệ mới
+                                                    </small>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

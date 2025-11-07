@@ -5,6 +5,7 @@ use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\PostController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ConfigController as AdminConfigController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UploadController as AdminUploadController;
@@ -50,6 +51,12 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
             Route::post('/{id}/accept', [AdminOrderController::class, 'accept'])->name('accept');
             Route::post('/{id}/reject', [AdminOrderController::class, 'reject'])->name('reject');
             Route::post('/{id}/complete', [AdminOrderController::class, 'complete'])->name('complete');
+        });
+        Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
+            Route::get('', [AdminContactController::class, 'index'])->name('index');
+            Route::post('/{id}/mark-processed', [AdminContactController::class, 'markAsProcessed'])->name('mark-processed');
+            Route::post('/{id}/mark-pending', [AdminContactController::class, 'markAsPending'])->name('mark-pending');
+            Route::post('/{id}/delete', [AdminContactController::class, 'delete'])->name('delete');
         });
         Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
             Route::get('', [AdminPostController::class, 'index'])->name('index');
