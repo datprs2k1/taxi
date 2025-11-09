@@ -6,7 +6,7 @@
         $pageTitle = 'Khuyến mại - ' . $siteTitle;
         $pageDescription = 'Tổng hợp các chương trình khuyến mại, ưu đãi đặc biệt từ ' . $siteTitle . '. Cập nhật thường xuyên các ưu đãi hấp dẫn.';
     @endphp
-    <x-seo-meta 
+    <x-seo-meta
         :config="$config"
         :title="$pageTitle"
         :description="$pageDescription"
@@ -44,7 +44,7 @@
     @include('components.post-styles')
     <section class="posts-section">
         <div class="posts-container">
-            <div class="posts-row">
+            <div class="posts-row_promotions">
                 <div class="posts-left-column" style="flex: 0 0 100%; max-width: 100%;">
                     <x-breadcrumb :items="[
                         ['name' => 'Trang chủ', 'url' => route('home.index')],

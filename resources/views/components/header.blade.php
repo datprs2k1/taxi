@@ -219,7 +219,7 @@
                 width: calc(100% + 30px)
             }
         }
-        
+
         /* Override for mobile - must be after desktop styles */
         @media screen and (max-width:767px) {
             .kc-row-container .kc-wrap-columns,
@@ -238,7 +238,7 @@
                 float: none !important;
                 clear: both !important;
             }
-            
+
             body.kc-css-system .kc_col-sm-6,
             .kc_col-sm-6 {
                 width: 100% !important;
@@ -247,7 +247,7 @@
                 float: none !important;
                 clear: both !important;
             }
-            
+
             body.kc-css-system .kc-css-830723.kc_column,
             body.kc-css-system .kc-css-606785.kc_column {
                 width: 100% !important;
@@ -260,7 +260,7 @@
             div.kc_row {
                 display: block
             }
-            
+
             body.kc-css-system .kc-wrap-columns {
                 flex-direction: column !important;
                 display: flex !important;
@@ -761,7 +761,7 @@
                 width: calc(100% + 30px)
             }
         }
-        
+
         /* Override for mobile - must be after desktop styles */
         @media screen and (max-width:767px) {
             .kc-row-container .kc-wrap-columns,
@@ -780,7 +780,7 @@
                 float: none !important;
                 clear: both !important;
             }
-            
+
             body.kc-css-system .kc_col-sm-6,
             .kc_col-sm-6 {
                 width: 100% !important;
@@ -789,7 +789,7 @@
                 float: none !important;
                 clear: both !important;
             }
-            
+
             body.kc-css-system .kc-css-830723.kc_column,
             body.kc-css-system .kc-css-606785.kc_column {
                 width: 100% !important;
@@ -802,7 +802,7 @@
             div.kc_row {
                 display: block
             }
-            
+
             body.kc-css-system .kc-wrap-columns {
                 flex-direction: column !important;
                 display: flex !important;
@@ -1712,6 +1712,12 @@
                 display: block
             }
 
+            .dc_nav_top ul li:hover,
+            .dc_nav_top ul li:focus,
+            .dc_nav_top ul li:active {
+                background: #104183
+            }
+
             .dc_nav_top ul li.current-menu-item a {
                 background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.095) 100%)
             }
@@ -1819,6 +1825,12 @@
                 color: #FFF;
                 display: block;
                 padding: 5px 0
+            }
+
+            .dc_menu_top ul.menu li:hover,
+            .nav_top li:focus,
+            .nav_top li:active {
+                background: #104183
             }
 
             .dc_menu_top ul.menu li.menu-item-has-children {
@@ -2379,7 +2391,7 @@
                 width: 49.72%
             }
         }
-        
+
         /* Override for mobile - must be after desktop styles */
         @media only screen and (max-width:767px) {
             body.kc-css-system .kc-css-830723,
@@ -2484,8 +2496,8 @@
         }
 
         body.kc-css-system .kc-css-117587 {
-            margin-top: 25px;
-            margin-bottom: 25px
+            margin-top: 15px;
+            margin-bottom: 15px
         }
 
         body.kc-css-system .kc-css-331137 {
@@ -2538,9 +2550,9 @@
         }
 
         body.kc-css-system .kc-css-50831 {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            height: 60px
+            padding-top: 8px;
+            padding-bottom: 8px;
+            height: 48px
         }
 
         body.kc-css-system .kc-css-711805,
@@ -2564,8 +2576,8 @@
 
         body.kc-css-system .kc-css-268160 {
             background: transparent url({{ asset('uploads/2018/11/nbc_banner_tiny.jpg') }}) center center/cover no-repeat scroll;
-            padding-top: 20px;
-            padding-bottom: 20px
+            padding-top: 12px;
+            padding-bottom: 12px
         }
 
         body.kc-css-system .kc-css-828692 {
@@ -2889,7 +2901,7 @@
             }
 
             body.kc-css-system .kc-css-778181 img {
-                height: 35px
+                height: 32px
             }
 
             body.kc-css-system .kc-css-44176 {
@@ -3143,7 +3155,7 @@
                 margin-top: 30px
             }
         }
-        
+
         @media only screen and (max-width:767px) {
             body.kc-css-system .kc-css-830723,
             body.kc-css-system .kc-css-606785 {
@@ -3151,23 +3163,23 @@
                 max-width: 100% !important;
                 flex: 0 0 100% !important;
             }
-            
+
             body.kc-css-system .kc-css-830723.kc_col-sm-6,
             body.kc-css-system .kc-css-606785.kc_col-sm-6 {
                 width: 100% !important;
                 max-width: 100% !important;
                 flex: 0 0 100% !important;
             }
-            
+
             body.kc-css-system .kc-css-606785 {
                 margin-top: var(--space-lg);
             }
-            
+
             /* Force single column layout */
             body.kc-css-system .kc-wrap-columns {
                 flex-direction: column !important;
             }
-            
+
             body.kc-css-system .kc-css-121359 .kc-wrap-columns {
                 flex-direction: column !important;
             }

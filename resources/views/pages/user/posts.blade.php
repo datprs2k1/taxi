@@ -6,7 +6,7 @@
         $pageTitle = 'Bài viết - ' . $siteTitle;
         $pageDescription = $config->where('key', 'description')->first()->value ?? 'Tổng hợp các bài viết về dịch vụ taxi sân bay Nội Bài, tin tức du lịch và giao thông.';
     @endphp
-    <x-seo-meta 
+    <x-seo-meta
         :config="$config"
         :title="$pageTitle"
         :description="$pageDescription"
@@ -43,7 +43,7 @@
 @section('content')
     @include('components.post-styles')
 
-    <section class="posts-section">
+    <section class="posts-section1">
         <div class="posts-container">
             <div class="posts-row">
                 <div class="posts-left-column">

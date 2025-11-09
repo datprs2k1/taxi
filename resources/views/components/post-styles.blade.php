@@ -32,6 +32,21 @@
         }
     }
     
+    /* News posts section - always visible on mobile */
+    .news-posts-section { 
+        background: #f5f5f5; 
+        padding: 40px 0; 
+        display: block !important;
+    }
+    
+    @media (max-width: 767px) {
+        .news-posts-section {
+            padding: var(--space-xxl) 0;
+            display: block !important;
+            visibility: visible !important;
+        }
+    }
+    
     .posts-container {
         max-width: 1200px;
         margin: 0 auto;

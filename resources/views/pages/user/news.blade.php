@@ -6,7 +6,7 @@
         $pageTitle = 'Tin tức - ' . $siteTitle;
         $pageDescription = 'Tin tức mới nhất về dịch vụ taxi sân bay Nội Bài, cập nhật thông tin du lịch, giao thông và các sự kiện liên quan.';
     @endphp
-    <x-seo-meta 
+    <x-seo-meta
         :config="$config"
         :title="$pageTitle"
         :description="$pageDescription"
@@ -44,7 +44,7 @@
     @include('components.post-styles')
     <section class="posts-section">
         <div class="posts-container">
-            <div class="posts-row">
+            <div class="posts-row_news">
                 <div class="posts-left-column" style="flex: 0 0 100%; max-width: 100%;">
                     <x-breadcrumb :items="[
                         ['name' => 'Trang chủ', 'url' => route('home.index')],

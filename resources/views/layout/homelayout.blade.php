@@ -8,7 +8,9 @@
     <div id="fb-root"></div>
     <div id="fb-customer-chat" class="fb-customerchat"></div>
     <div class="kc_clfw"></div>
-    <x-navbar :config="$config" />
+    <nav>
+        <x-navbar :config="$config" />
+    </nav>
     <main id="main-content">
         @yield('content')
     </main>
